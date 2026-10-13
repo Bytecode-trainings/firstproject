@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Registration | Bytecode Trainings Student Portal</title>
+  <meta name="description" content="Access your Bytecode Trainings student portal. Access live classes, interactive coding labs, assignment submissions, and mentor support.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M8 6l-6 6 6 6 1.41-1.41L4.83 12l4.58-4.59L8 6zm8 0l-1.41 1.41L19.17 12l-4.58 4.59L16 18l6-6-6-6z'/></svg>">
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrapper">
+    <!-- Left Showcase Side -->
+    <div class="auth-showcase">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom: 2rem;">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <span class="logo-text">Bytecode<span>Trainings</span></span>
+        </a>
+
+        <div class="badge-pill" style="margin-top: 1rem;">
+          <span class="pulse-dot"></span>
+          <span>Learning Management Portal</span>
+        </div>
+
+        <h2 style="font-size: 2.1rem; line-height: 1.25; margin-bottom: 1rem;">
+          Turn Ambition Into <br>
+          <span class="gradient-accent-text">Real-World Code.</span>
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Your gateway to live cohort sessions, real-time code environments, weekly assignments, and 1:1 mentor bookings.
+        </p>
+
+        <ul class="auth-features-list">
+          <li class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <div class="auth-feature-text">
+              <h5>Curated Cohort Curriculum</h5>
+              <p>Full Stack, GenAI, DevOps & Cloud tracks tailored for 2026 hiring.</p>
+            </div>
+          </li>
+
+          <li class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="auth-feature-text">
+              <h5>Direct Mentor Doubt Resolution</h5>
+              <p>Instant support on Slack/Discord & weekly 1-on-1 code reviews.</p>
+            </div>
+          </li>
+
+          <li class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <div class="auth-feature-text">
+              <h5>Lifetime Archive Access</h5>
+              <p>Re-watch recorded sessions anytime at high-definition quality.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick Testimonial Snippet -->
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.25rem;">
+        <p style="font-size: 0.85rem; color: #cbd5e1; font-style: italic; margin-bottom: 0.75rem;">
+          "The LMS portal with direct mentor feedback helped me clear my AWS & React developer rounds in my first attempt!"
+        </p>
+        <span style="font-size: 0.75rem; color: var(--secondary); font-weight: 600;">— Ananya R., Cloud Architect</span>
+      </div>
+    </div>
+
+    <!-- Right Form Side -->
+    <div class="auth-form-side">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <a href="index.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Homepage
+        </a>
+        <span style="font-size: 0.8rem; color: #10b981; display: flex; align-items: center; gap: 4px;">
+          <span style="width: 7px; height: 7px; background: #10b981; border-radius: 50%;"></span>
+          Portal Active
+        </span>
+      </div>
+
+      <div class="auth-header">
+        <h2 id="formTitle">Welcome Back</h2>
+        <p id="formSubtitle">Login to continue your learning journey</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-switch-tabs">
+        <button class="auth-tab-btn active" id="tabLogin">Sign In</button>
+        <button class="auth-tab-btn" id="tabRegister">Create Account</button>
+      </div>
+
+      <!-- ================= LOGIN FORM ================= -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email / Student ID</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <input type="email" id="loginEmail" class="form-control" placeholder="name@bytecode.edu / your@email.com" required value="student@bytecode.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required value="bytecode2026">
+            <button type="button" class="toggle-pwd" data-target="loginPassword" aria-label="Toggle password visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginRole">Select Role</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <select id="loginRole" class="form-control" style="background: rgba(18, 24, 38, 0.95); color: #fff;">
+              <option value="student">Student Learner</option>
+              <option value="mentor">Faculty / Mentor</option>
+              <option value="recruiter">Hiring Partner</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-meta">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-link" onclick="showToast('Password reset link sent to registered email!', 'info'); return false;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="submitLoginBtn">
+          Sign In to Portal
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+      </form>
+
+      <!-- ================= REGISTER FORM ================= -->
+      <form id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label class="form-label" for="regName">Full Name</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <input type="text" id="regName" class="form-control" placeholder="e.g. John Doe">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <input type="email" id="regEmail" class="form-control" placeholder="john@example.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regCourse">Interested Program</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </span>
+            <select id="regCourse" class="form-control" style="background: rgba(18, 24, 38, 0.95); color: #fff;">
+              <option value="Full Stack Web Development">Full Stack Web Development</option>
+              <option value="Generative AI & Data Science">Generative AI & Data Science</option>
+              <option value="Cloud Engineering & DevOps">Cloud Engineering & DevOps</option>
+              <option value="Java Spring Boot Microservices">Java Spring Boot Microservices</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Create Password</label>
+          <div class="input-box">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+            <input type="password" id="regPassword" class="form-control" placeholder="At least 6 characters">
+            <button type="button" class="toggle-pwd" data-target="regPassword" aria-label="Toggle password visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="submitRegisterBtn">
+          Create Student Account
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+      </form>
+
+      <!-- Social Logins -->
+      <div class="social-divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="social-login-grid">
+        <button class="social-btn" id="socialGoogleBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.4 8.8 5 12 5z"/>
+            <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5.1 3.7-8.8z"/>
+            <path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.7 0-1.1.2-2 .4-2.7L1.6 6.4C.6 8.3 0 10.5 0 12.7s.6 4.4 1.6 6.3l3.7-4.3z"/>
+            <path fill="#34A853" d="M12 23.5c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.8-2.6 1.3-4.3 1.3-3.2 0-5.8-2.4-6.7-5.3L1.6 16.5C3.5 20.3 7.4 23.5 12 23.5z"/>
+          </svg>
+          Google
+        </button>
+        <button class="social-btn" id="socialGithubBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          GitHub
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

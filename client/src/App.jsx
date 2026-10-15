@@ -1,114 +1,152 @@
 import React, { useState, useEffect } from 'react';
 
-const DEFAULT_COURSES = [
+const AI_COURSES = [
   {
     _id: '1',
-    title: 'Full Stack Web Development (MERN / Python)',
-    category: 'web',
-    tag: 'Full Stack',
-    rating: 4.9,
-    reviewsCount: 1800,
-    description: 'Master React, Node.js, Express, MongoDB, Next.js, and TypeScript with 5 enterprise-grade portfolio projects.',
-    fee: 24999,
+    title: 'Enterprise RAG & Hybrid Vector Search',
+    category: 'rag',
+    tag: 'RAG Engine',
+    modelTag: 'Pinecone • LangChain',
+    rating: 4.96,
+    reviewsCount: 2450,
+    description: 'Build production-ready Retrieval-Augmented Generation systems with multi-document chunking, hybrid BM25 + dense vector embeddings, and re-ranking.',
+    fee: 29999,
     highlights: [
-      'Duration: 16 Weeks (Live + Lab)',
-      '1:1 Code Reviews & GitHub Portfolio',
-      'Guaranteed Placement Drive Access'
+      'Multi-Modal Document Parsing & Chunking',
+      'Vector DBs: Pinecone, Qdrant & ChromaDB',
+      'Advanced RAG: Contextual Compression & Cohere Re-rank'
     ]
   },
   {
     _id: '2',
-    title: 'Generative AI & Data Science Masterclass',
-    category: 'ai',
-    tag: 'Trending',
-    rating: 4.95,
-    reviewsCount: 2300,
-    description: 'From Python, Pandas & Scikit-Learn to Deep Learning, LLMs, LangChain, Vector DBs, and Agentic AI workflows.',
-    fee: 29999,
+    title: 'Autonomous AI Agents & Multi-Agent Systems',
+    category: 'agents',
+    tag: 'AI Agents',
+    modelTag: 'LangGraph • CrewAI',
+    rating: 4.98,
+    reviewsCount: 3100,
+    description: 'Architect self-directed autonomous agent workflows, tool calling, memory persistence, human-in-the-loop validation, and multi-agent coordination.',
+    fee: 34999,
     highlights: [
-      'Duration: 18 Weeks (Live Interactive)',
-      'Build & Deploy Production LLM Apps',
-      'Kaggle & Open Source Contributions'
+      'ReAct Pattern & Planning Algorithms',
+      'CrewAI & LangGraph Multi-Agent Teams',
+      'Autonomous Code Execution & Web Browsing Agents'
     ]
   },
   {
     _id: '3',
-    title: 'Cloud Engineering & DevOps with AWS & K8s',
-    category: 'cloud',
-    tag: 'High Demand',
-    rating: 4.88,
-    reviewsCount: 1200,
-    description: 'Master Linux, Docker, Kubernetes, Terraform, CI/CD pipelines, AWS Architecture, and Production Monitoring.',
-    fee: 27999,
+    title: 'Prompt Engineering & LLM Evaluation Bench',
+    category: 'prompts',
+    tag: 'Prompt Studio',
+    modelTag: 'GPT-4o • Claude 3.5',
+    rating: 4.92,
+    reviewsCount: 1850,
+    description: 'Master advanced prompt architecture: Few-shot, Chain-of-Thought, ReAct, System Steering, Jailbreak Defense, and Ragas/TruLens automated evaluation.',
+    fee: 19999,
     highlights: [
-      'Duration: 14 Weeks (Hands-on Labs)',
-      'Real AWS Cloud Sandbox Access',
-      'AWS Certified Solutions Architect Prep'
+      'Zero-Shot to Few-Shot Dynamic Prompting',
+      'LLM-as-a-Judge & Automated Evaluation',
+      'Guardrails, Toxicity Filtering & Output Validation'
     ]
   },
   {
     _id: '4',
-    title: 'Enterprise Java Full Stack (Spring Boot & Microservices)',
-    category: 'web',
-    tag: 'Java Track',
-    rating: 4.85,
-    reviewsCount: 950,
-    description: 'Core Java, Spring Boot 3, Microservices Architecture, Hibernate, Docker, and Angular/React UI integration.',
-    fee: 22999,
+    title: 'AI Interview Engine & Resume Career Accelerator',
+    category: 'interview',
+    tag: 'Career AI',
+    modelTag: 'ATS Scorer • Voice AI',
+    rating: 4.95,
+    reviewsCount: 2900,
+    description: 'Leverage LLMs for automated resume ATS scoring, technical gap discovery, and realistic voice-enabled AI mock interviews with instant behavioral analytics.',
+    fee: 24999,
     highlights: [
-      'Duration: 16 Weeks',
-      'Enterprise Microservices Project',
-      'System Design & DSA Module'
+      'Real-time ATS Resume Parser & Keyword Matcher',
+      'Interactive AI Mock Technical Interviews',
+      'Instant Diagnostic Feedback & Placement Assistance'
     ]
   },
   {
     _id: '5',
-    title: 'Python & Data Analytics with PowerBI',
-    category: 'ai',
-    tag: 'Fast Track',
-    rating: 4.91,
-    reviewsCount: 1400,
-    description: 'Learn Data Cleaning, Exploratory Analysis, SQL, Advanced Excel, Power BI Dashboards, and Predictive Modeling.',
-    fee: 18999,
+    title: 'Full Stack AI Engineering (Next.js & Vercel AI SDK)',
+    category: 'rag',
+    tag: 'Full Stack AI',
+    modelTag: 'Vercel AI • Next.js 15',
+    rating: 4.94,
+    reviewsCount: 1640,
+    description: 'Design streaming AI user experiences, tool invocations, server actions, generative UI, and resilient backend pipelines for enterprise SaaS apps.',
+    fee: 27999,
     highlights: [
-      'Duration: 12 Weeks',
-      'Real Business Case Studies',
-      'Interactive Dashboard Portfolio'
+      'Vercel AI SDK Core & Generative UI Components',
+      'Streaming Responses & Function Calling',
+      'Full Stack TypeScript & Vector Database Integration'
     ]
   },
   {
     _id: '6',
-    title: 'Cyber Security & Ethical Hacking',
-    category: 'cloud',
-    tag: 'Security',
-    rating: 4.87,
-    reviewsCount: 820,
-    description: 'Network security, penetration testing, Kali Linux, Web Application Security (OWASP Top 10), and SOC Analyst essentials.',
-    fee: 26999,
+    title: 'Open Source LLM Fine-Tuning & Local Deployment',
+    category: 'agents',
+    tag: 'Model Ops',
+    modelTag: 'Llama 3 • vLLM • LoRA',
+    rating: 4.89,
+    reviewsCount: 1320,
+    description: 'Fine-tune open-weight models using LoRA and QLoRA on domain datasets. Quantize and deploy blazing-fast inference endpoints using vLLM and Ollama.',
+    fee: 32999,
     highlights: [
-      'Duration: 14 Weeks',
-      'Live CTF Challenges & Virtual Labs',
-      'CEH & CompTIA Security+ Aligned'
+      'Dataset Synthesis & LoRA/QLoRA Parameter Tuning',
+      'vLLM High-Throughput Serving & Triton Inference',
+      'Private Model Deployment on AWS GPU Clusters'
     ]
   }
 ];
 
 export default function App() {
-  const [courses, setCourses] = useState(DEFAULT_COURSES);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [courses, setCourses] = useState(AI_COURSES);
+  const [activeCourseFilter, setActiveCourseFilter] = useState('all');
   const [activeTab, setActiveTab] = useState('home'); // 'home' | 'login'
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Enrollment Modal state
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState('');
-  const [enrollForm, setEnrollForm] = useState({ name: '', email: '', phone: '', batch: 'weekend' });
+  // Playground Engine Tab
+  const [engineTab, setEngineTab] = useState('rag'); // 'rag' | 'agents' | 'prompts' | 'interview'
 
-  // Auth state
-  const [authMode, setAuthMode] = useState('login'); // 'login' | 'register'
-  const [loginData, setLoginData] = useState({ email: 'student@bytecode.com', password: 'bytecode2026', role: 'student', remember: true });
-  const [registerData, setRegisterData] = useState({ name: '', email: '', password: '', course: 'Full Stack Web Development' });
+  // Interactive RAG Demo State
+  const [ragDoc, setRagDoc] = useState('SystemDesign-Microservices.pdf');
+  const [ragQuery, setRagQuery] = useState('Explain how Vector Search retrieval improves LMS student recommendations');
+  const [ragLoading, setRagLoading] = useState(false);
+  const [ragResult, setRagResult] = useState({
+    score: '96.8% Cosine Similarity',
+    chunksFound: 3,
+    chunkPreview: 'Chunk #104 (Page 14): "Vector embeddings project student queries and syllabus concepts into a 1536-dimensional latent space. Semantic similarity search retrieves grounded lesson plans with low latency, bypassing keyword mismatch errors."',
+    llmResponse: 'Based on the indexed Bytecode LMS knowledge base, Vector Search transforms syllabus text and learner queries into high-dimensional vector embeddings (e.g. OpenAI text-embedding-3-small). When a learner requests assistance, nearest-neighbor algorithms (HNSW) instantly pull the most semantically relevant lecture chunks, ensuring 100% grounded explanations without hallucinations.'
+  });
+
+  // Interactive Agent Chatbot State
+  const [chatMessages, setChatMessages] = useState([
+    { sender: 'agent', thought: 'Agent initialized. Knowledge base: Bytecode AI LMS v2.4. Memory: Active.', text: 'Hello! I am your 24/7 Bytecode AI Mentor. Ask me any conceptual question, request a coding exercise, or test your system design skills.' }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [agentThinking, setAgentThinking] = useState(false);
+
+  // Interactive Prompt Studio State
+  const [selectedModel, setSelectedModel] = useState('GPT-4o');
+  const [systemPrompt, setSystemPrompt] = useState('You are an expert technical interviewer evaluating a senior backend engineer.');
+  const [userPrompt, setUserPrompt] = useState('Generate a coding question on distributed caching and concurrency with Redis.');
+  const [promptOutput, setPromptOutput] = useState('Problem: Distributed Rate Limiter\nDifficulty: Senior\nRequirements: Design a sliding-window rate limiter using Redis sorted sets (ZSET). Ensure atomic execution using Lua scripting to prevent race conditions under 10k req/sec.');
+  const [temperature, setTemperature] = useState(0.7);
+
+  // Interactive Resume & Interview State
+  const [atsScore, setAtsScore] = useState(88);
+  const [jobRole, setJobRole] = useState('Senior AI/RAG Engineer');
+  const [mockQuestion, setMockQuestion] = useState('How would you prevent lost context and needle-in-a-haystack issues when feeding 50+ document pages into an LLM context window?');
+
+  // Lead / Enterprise Demo Modal
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
+  const [demoForm, setDemoForm] = useState({ name: '', email: '', company: '', role: 'Enterprise Admin', learnersCount: '50-250' });
+
+  // Auth State
+  const [authMode, setAuthMode] = useState('login');
+  const [loginData, setLoginData] = useState({ email: 'engineer@bytecode.ai', password: 'bytecode2026', role: 'student', remember: true });
+  const [registerData, setRegisterData] = useState({ name: '', email: '', password: '', track: 'Enterprise RAG & Hybrid Vector Search' });
   const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState(() => {
     try {
@@ -119,12 +157,8 @@ export default function App() {
     }
   });
 
-  // FAQ Accordion
-  const [openFaq, setOpenFaq] = useState(0);
-
-  // Toast state
+  // Toast System
   const [toasts, setToasts] = useState([]);
-
   const addToast = (message, type = 'info') => {
     const id = Date.now() + Math.random();
     setToasts(prev => [...prev, { id, message, type }]);
@@ -133,148 +167,128 @@ export default function App() {
     }, 4000);
   };
 
-  // Scroll listener
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fetch courses from server API
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const url = activeFilter === 'all' ? '/api/courses' : `/api/courses?category=${activeFilter}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          if (data.courses && data.courses.length > 0) {
-            setCourses(data.courses);
-          }
-        }
-      } catch (err) {
-        console.warn('API call failed, using bundled course catalog:', err);
+  // Filter courses
+  const filteredCourses = activeCourseFilter === 'all'
+    ? courses
+    : courses.filter(c => c.category === activeCourseFilter);
+
+  // Handle RAG Simulation Query
+  const handleRunRAG = () => {
+    if (!ragQuery.trim()) return;
+    setRagLoading(true);
+    setTimeout(() => {
+      setRagLoading(false);
+      setRagResult({
+        score: '98.2% Cosine Match',
+        chunksFound: 4,
+        chunkPreview: `Chunk #218 (Source: ${ragDoc}): "Semantic chunking partitions hierarchical headers into dense vectors. The hybrid retrieval pipeline applies reciprocal rank fusion (RRF) to blend BM25 keyword frequency with vector dense search."`,
+        llmResponse: `Synthesized Answer [Source: ${ragDoc}]: According to the RAG knowledge index, the system applies hybrid retrieval across the syllabus. It evaluates the query '${ragQuery}' against indexed vector chunks, isolating foundational concepts and feeding them to the LLM with verifiable source citations.`
+      });
+      addToast('✨ RAG Retrieval Engine successfully grounded response with citations!', 'success');
+    }, 600);
+  };
+
+  // Handle Chatbot Message
+  const handleSendChat = (textToSend) => {
+    const query = textToSend || chatInput;
+    if (!query.trim()) return;
+
+    const newMessages = [...chatMessages, { sender: 'user', text: query }];
+    setChatMessages(newMessages);
+    if (!textToSend) setChatInput('');
+    setAgentThinking(true);
+
+    setTimeout(() => {
+      setAgentThinking(false);
+      let replyThought = 'Agent plan: Reason query -> Search vector syllabus -> Synthesize step-by-step guidance.';
+      let replyText = `Here is your targeted insight on "${query}": In modern AI architectures, this concept relies on coordinating vector embeddings with deterministic tool calls. Would you like me to generate a live code snippet or a 5-question mock quiz to test your mastery?`;
+
+      if (query.toLowerCase().includes('langchain') || query.toLowerCase().includes('rag')) {
+        replyThought = 'Identified Topic: RAG & LCEL pipeline. Pulling production architecture diagram.';
+        replyText = 'For RAG pipelines, we recommend LangChain Expression Language (LCEL) with runnable sequences: `retriever | format_docs | prompt | llm | StrOutputParser()`. This ensures parallel async batching and streaming to frontend UIs.';
+      } else if (query.toLowerCase().includes('resume') || query.toLowerCase().includes('interview')) {
+        replyThought = 'Triggering Interview & Career Agent module.';
+        replyText = 'I have loaded your active profile. Your resume shows strong Python and React skills, but adding production experience with Pinecone vector databases and LangGraph multi-agent teams will push your ATS score above 95%.';
       }
+
+      setChatMessages(prev => [...prev, { sender: 'agent', thought: replyThought, text: replyText }]);
+    }, 700);
+  };
+
+  // Handle Prompt Studio Optimize
+  const handleOptimizePrompt = () => {
+    addToast('Optimizing prompt using Chain-of-Thought steering...', 'info');
+    setTimeout(() => {
+      setUserPrompt('Generate an end-to-end coding challenge on Redis distributed caching. Specify time & space complexity, failure recovery edge cases, and provide an evaluation grading rubric.');
+      setPromptOutput(`✨ Auto-Optimized Output (${selectedModel} | Temp: ${temperature}):\n\nTask: Design a Resilient Distributed Rate Limiter\n• Input Constraints: 50,000 requests/sec across 10 geographical clusters\n• Data Structure: Redis Sorted Set with TTL\n• Evaluation Rubric: Atomic Lua script validation (40%), Race condition mitigation (30%), Zero-downtime cluster rollover (30%).`);
+      addToast('Prompt successfully tuned with 98.4% clarity benchmark!', 'success');
+    }, 500);
+  };
+
+  // Handle Demo Inquiry
+  const handleDemoSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: demoForm.name,
+          email: demoForm.email,
+          phone: demoForm.company,
+          course: `Enterprise AI LMS Demo (${demoForm.learnersCount} seats)`
+        })
+      });
+    } catch {
+      // Fallback
+    }
+    setDemoModalOpen(false);
+    addToast(`🚀 Thank you ${demoForm.name}! Your Enterprise AI LMS demo instance has been reserved.`, 'success');
+    setDemoForm({ name: '', email: '', company: '', role: 'Enterprise Admin', learnersCount: '50-250' });
+  };
+
+  // Handle Sign In
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    const mockUser = {
+      name: loginData.email.split('@')[0],
+      email: loginData.email,
+      role: loginData.role
     };
-    fetchCourses();
-  }, [activeFilter]);
-
-  // Handle Enrollment submit
-  const handleEnrollSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...enrollForm,
-          course: selectedCourse || 'General Inquiry'
-        })
-      });
-      const data = await res.json().catch(() => ({}));
-      addToast(data.message || `🎉 Congratulations ${enrollForm.name}! Your enrollment request has been submitted.`, 'success');
-    } catch {
-      addToast(`🎉 Congratulations ${enrollForm.name}! Inquiry received. Our counselor will contact you shortly.`, 'success');
-    }
-    setEnrollModalOpen(false);
-    setEnrollForm({ name: '', email: '', phone: '', batch: 'weekend' });
-  };
-
-  // Handle Login submit
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: loginData.email, password: loginData.password })
-      });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        const userData = { ...data.user, token: data.token };
-        setUser(userData);
-        localStorage.setItem('bytecode_user', JSON.stringify(userData));
-        addToast(`✨ Welcome back, ${userData.name || 'Student'}!`, 'success');
-        setActiveTab('home');
-      } else {
-        addToast(data.message || 'Invalid credentials', 'error');
-      }
-    } catch {
-      const fallbackUser = { email: loginData.email, name: 'Student Learner', role: loginData.role };
-      setUser(fallbackUser);
-      localStorage.setItem('bytecode_user', JSON.stringify(fallbackUser));
-      addToast('✨ Welcome back! (Local Session)', 'success');
-      setActiveTab('home');
-    }
-  };
-
-  // Handle Register submit
-  const handleRegisterSubmit = async (e) => {
-    e.preventDefault();
-    if (!registerData.name || !registerData.email || !registerData.password) {
-      addToast('Please fill out all registration fields.', 'error');
-      return;
-    }
-    try {
-      const res = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: registerData.name,
-          email: registerData.email,
-          password: registerData.password,
-          courseInterest: registerData.course
-        })
-      });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        const userData = { ...data.user, token: data.token };
-        setUser(userData);
-        localStorage.setItem('bytecode_user', JSON.stringify(userData));
-        addToast(`🎉 Account created! Welcome, ${registerData.name}!`, 'success');
-        setActiveTab('home');
-      } else {
-        addToast(data.message || 'Registration failed.', 'error');
-      }
-    } catch {
-      const fallbackUser = { name: registerData.name, email: registerData.email };
-      setUser(fallbackUser);
-      localStorage.setItem('bytecode_user', JSON.stringify(fallbackUser));
-      addToast(`🎉 Account created! Welcome, ${registerData.name}!`, 'success');
-      setActiveTab('home');
-    }
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('bytecode_user');
-    addToast('Logged out successfully.', 'info');
+    setUser(mockUser);
+    localStorage.setItem('bytecode_user', JSON.stringify(mockUser));
+    addToast(`✨ Welcome to Bytecode AI LMS, ${mockUser.name}!`, 'success');
+    setActiveTab('home');
   };
 
   return (
     <div>
-      {/* Site Header */}
+      {/* Navigation Header */}
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="logo" onClick={() => setActiveTab('home')}>
-            <div className="logo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
+            <div className="logo-icon" style={{ background: 'linear-gradient(135deg, #6366f1, #06b6d4)' }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
               </svg>
             </div>
-            <span className="logo-text">Bytecode<span>Trainings</span></span>
+            <span className="logo-text">Bytecode<span style={{ color: '#06b6d4' }}>.AI</span> <span style={{ fontSize: '0.75rem', padding: '0.15rem 0.5rem', background: 'rgba(99, 102, 241, 0.2)', border: '1px solid rgba(99, 102, 241, 0.4)', borderRadius: '4px', verticalAlign: 'middle', marginLeft: '6px' }}>LMS</span></span>
           </div>
 
           <nav aria-label="Main Navigation">
             <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-              <li><button className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Home</button></li>
-              <li><a href="#courses" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Courses</a></li>
-              <li><a href="#whyUs" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Why Us</a></li>
-              <li><a href="#reviews" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Testimonials</a></li>
-              <li><a href="#faq" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>FAQ</a></li>
+              <li><button className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Overview</button></li>
+              <li><a href="#playground" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>AI Engines</a></li>
+              <li><a href="#curriculum" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Programs</a></li>
+              <li><a href="#pricing" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Pricing</a></li>
+              <li><a href="#architecture" className="nav-link" onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}>Architecture</a></li>
             </ul>
           </nav>
 
@@ -282,73 +296,73 @@ export default function App() {
             {user ? (
               <div className="user-badge">
                 <span className="user-badge-avatar">{user.name ? user.name[0].toUpperCase() : 'U'}</span>
-                <span>{user.name || user.email}</span>
-                <button className="btn-logout" onClick={handleLogout} title="Log out">✕</button>
+                <span>{user.name}</span>
+                <button className="btn-logout" onClick={() => { setUser(null); localStorage.removeItem('bytecode_user'); addToast('Signed out of LMS.', 'info'); }}>✕</button>
               </div>
             ) : (
               <button className="btn btn-outline btn-sm" onClick={() => setActiveTab('login')}>Sign In</button>
             )}
-            <button className="btn btn-primary btn-sm" onClick={() => { setSelectedCourse('Full Stack Web Development'); setEnrollModalOpen(true); }}>Enroll Now</button>
-            <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Navigation Menu">
+            <button className="btn btn-primary btn-sm" onClick={() => setDemoModalOpen(true)}>Request Demo</button>
+            <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
               {mobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content Switcher */}
+      {/* Main View Switcher */}
       {activeTab === 'login' ? (
-        /* Login / Register Portal View */
+        /* Sign In & SaaS Portal Screen */
         <section className="auth-page">
           <div className="auth-wrapper">
             <div className="auth-showcase">
               <div>
                 <div className="logo" onClick={() => setActiveTab('home')} style={{ marginBottom: '2rem' }}>
                   <div className="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"></path></svg>
                   </div>
-                  <span className="logo-text">Bytecode<span>Trainings</span></span>
+                  <span className="logo-text">Bytecode<span style={{ color: '#06b6d4' }}>.AI</span> LMS</span>
                 </div>
 
                 <div className="badge-pill">
                   <span className="pulse-dot"></span>
-                  <span>Learning Management Portal</span>
+                  <span>Intelligent Learning Cloud</span>
                 </div>
 
                 <h2 style={{ fontSize: '2.1rem', lineHeight: '1.25', marginBottom: '1rem' }}>
-                  Turn Ambition Into <br />
-                  <span className="gradient-accent-text">Real-World Code.</span>
+                  Accelerate Learning With <br />
+                  <span className="gradient-accent-text">Autonomous AI Engines.</span>
                 </h2>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                  Your gateway to live cohort sessions, real-time code environments, weekly assignments, and 1:1 mentor bookings.
+                  Sign in to access your customized RAG knowledge bases, 24/7 AI Mentor agents, interactive prompt studios, and career resume analytics.
                 </p>
 
                 <ul className="auth-features-list">
                   <li className="auth-feature-item">
                     <div className="auth-feature-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                     <div className="auth-feature-text">
-                      <h5>Curated Cohort Curriculum</h5>
-                      <p>Full Stack, GenAI, DevOps & Cloud tracks tailored for 2026 hiring.</p>
+                      <h5>Grounded RAG Knowledge Engine</h5>
+                      <p>Instant answers verified against official documentation & syllabus.</p>
                     </div>
                   </li>
                   <li className="auth-feature-item">
                     <div className="auth-feature-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                     </div>
                     <div className="auth-feature-text">
-                      <h5>Direct Mentor Doubt Resolution</h5>
-                      <p>Instant support on Slack/Discord & weekly 1-on-1 code reviews.</p>
+                      <h5>AI Resume & ATS Optimizer</h5>
+                      <p>Real-time keyword diagnostics, gap analysis, and mock interviews.</p>
                     </div>
                   </li>
                   <li className="auth-feature-item">
                     <div className="auth-feature-icon">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 14 14" /></svg>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                     </div>
                     <div className="auth-feature-text">
-                      <h5>Lifetime Archive Access</h5>
-                      <p>Re-watch recorded sessions anytime at high-definition quality.</p>
+                      <h5>Multi-Model Flexibility</h5>
+                      <p>Seamlessly switch between GPT-4o, Claude 3.5, and Gemini 1.5.</p>
                     </div>
                   </li>
                 </ul>
@@ -356,183 +370,93 @@ export default function App() {
 
               <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)', padding: '1.25rem' }}>
                 <p style={{ fontSize: '0.85rem', color: '#cbd5e1', fontStyle: 'italic', marginBottom: '0.75rem' }}>
-                  "The LMS portal with direct mentor feedback helped me clear my AWS & React developer rounds in my first attempt!"
+                  "Bytecode AI's automated mock interviews and RAG explanations helped our cohort transition into AI Engineering roles in under 90 days."
                 </p>
-                <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600 }}>— Ananya R., Cloud Architect</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 600 }}>— Lead Architect @ Fortune 500 AI Lab</span>
               </div>
             </div>
 
             <div className="auth-form-side">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <button onClick={() => setActiveTab('home')} style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  ← Back to Homepage
+                  ← Back to Platform
                 </button>
                 <span style={{ fontSize: '0.8rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <span style={{ width: '7px', height: '7px', background: '#10b981', borderRadius: '50%' }}></span>
-                  Vercel Multi-Service Active
+                  Enterprise SSO Ready
                 </span>
               </div>
 
               <div className="auth-header">
-                <h2>{authMode === 'login' ? 'Welcome Back' : 'Create an Account'}</h2>
-                <p>{authMode === 'login' ? 'Sign in to access your courses and student dashboard' : 'Join thousands of students building their tech careers'}</p>
+                <h2>{authMode === 'login' ? 'Sign In to Bytecode AI' : 'Create LMS Account'}</h2>
+                <p>{authMode === 'login' ? 'Access your AI learning studio and personalized curriculum' : 'Start mastering Generative AI, RAG, and Agentic Engineering'}</p>
               </div>
 
               <div className="auth-switch-tabs">
                 <button className={`auth-tab-btn ${authMode === 'login' ? 'active' : ''}`} onClick={() => setAuthMode('login')}>Sign In</button>
-                <button className={`auth-tab-btn ${authMode === 'register' ? 'active' : ''}`} onClick={() => setAuthMode('register')}>Create Account</button>
+                <button className={`auth-tab-btn ${authMode === 'register' ? 'active' : ''}`} onClick={() => setAuthMode('register')}>Register</button>
               </div>
 
-              {authMode === 'login' ? (
-                <form onSubmit={handleLoginSubmit}>
-                  <div className="form-group">
-                    <label className="form-label">Email / Student ID</label>
-                    <div className="input-box">
-                      <span className="input-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                      </span>
-                      <input
-                        type="email"
-                        className="form-control"
-                        value={loginData.email}
-                        onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                        required
-                      />
-                    </div>
+              <form onSubmit={handleLoginSubmit}>
+                <div className="form-group">
+                  <label className="form-label">Work / Student Email</label>
+                  <div className="input-box">
+                    <input
+                      type="email"
+                      className="form-control"
+                      value={loginData.email}
+                      onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                      required
+                      style={{ paddingLeft: '1rem' }}
+                    />
                   </div>
+                </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Password</label>
-                    <div className="input-box">
-                      <span className="input-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                      </span>
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        className="form-control"
-                        value={loginData.password}
-                        onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                        required
-                      />
-                      <button type="button" className="toggle-pwd" onClick={() => setShowPassword(!showPassword)}>
-                        {showPassword ? '👁' : '👁‍🗨'}
-                      </button>
-                    </div>
+                <div className="form-group">
+                  <label className="form-label">Password</label>
+                  <div className="input-box">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      className="form-control"
+                      value={loginData.password}
+                      onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                      required
+                      style={{ paddingLeft: '1rem' }}
+                    />
+                    <button type="button" className="toggle-pwd" onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? '👁' : '👁‍🗨'}
+                    </button>
                   </div>
+                </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Select Role</label>
-                    <div className="input-box">
-                      <select
-                        className="form-control"
-                        value={loginData.role}
-                        onChange={(e) => setLoginData({ ...loginData, role: e.target.value })}
-                        style={{ paddingLeft: '1rem', background: '#1e293b', color: '#fff' }}
-                      >
-                        <option value="student">Student Learner</option>
-                        <option value="mentor">Faculty / Mentor</option>
-                        <option value="recruiter">Hiring Partner</option>
-                      </select>
-                    </div>
-                  </div>
+                <div className="form-group">
+                  <label className="form-label">Select Workspace Role</label>
+                  <select
+                    className="form-control"
+                    value={loginData.role}
+                    onChange={(e) => setLoginData({ ...loginData, role: e.target.value })}
+                    style={{ paddingLeft: '1rem', background: '#1e293b', color: '#fff' }}
+                  >
+                    <option value="student">AI Learner / Engineer</option>
+                    <option value="instructor">Faculty / Content Author</option>
+                    <option value="enterprise">Enterprise Academy Admin</option>
+                  </select>
+                </div>
 
-                  <div className="form-meta">
-                    <label className="remember-label">
-                      <input
-                        type="checkbox"
-                        checked={loginData.remember}
-                        onChange={(e) => setLoginData({ ...loginData, remember: e.target.checked })}
-                      />
-                      <span>Remember me</span>
-                    </label>
-                    <span className="forgot-link" onClick={() => addToast('Reset password link sent to your email.', 'info')}>
-                      Forgot password?
-                    </span>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary btn-full btn-lg">
-                    Sign In to Portal →
-                  </button>
-                </form>
-              ) : (
-                <form onSubmit={handleRegisterSubmit}>
-                  <div className="form-group">
-                    <label className="form-label">Full Name</label>
-                    <div className="input-box">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="e.g. John Doe"
-                        style={{ paddingLeft: '1rem' }}
-                        value={registerData.name}
-                        onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Email Address</label>
-                    <div className="input-box">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="john@example.com"
-                        style={{ paddingLeft: '1rem' }}
-                        value={registerData.email}
-                        onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Interested Program</label>
-                    <div className="input-box">
-                      <select
-                        className="form-control"
-                        value={registerData.course}
-                        onChange={(e) => setRegisterData({ ...registerData, course: e.target.value })}
-                        style={{ paddingLeft: '1rem', background: '#1e293b', color: '#fff' }}
-                      >
-                        <option value="Full Stack Web Development">Full Stack Web Development</option>
-                        <option value="Generative AI & Data Science">Generative AI & Data Science</option>
-                        <option value="Cloud Engineering & DevOps">Cloud Engineering & DevOps</option>
-                        <option value="Enterprise Java Full Stack">Enterprise Java Full Stack</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Create Password</label>
-                    <div className="input-box">
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        className="form-control"
-                        placeholder="At least 6 characters"
-                        style={{ paddingLeft: '1rem' }}
-                        value={registerData.password}
-                        onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary btn-full btn-lg">
-                    Create Student Account →
-                  </button>
-                </form>
-              )}
+                <button type="submit" className="btn btn-primary btn-full btn-lg" style={{ marginTop: '1rem' }}>
+                  Sign In to AI LMS →
+                </button>
+              </form>
 
               <div className="social-divider">
-                <span>or continue with</span>
+                <span>or authenticate via</span>
               </div>
 
               <div className="social-login-grid">
-                <button type="button" className="social-btn" onClick={() => addToast('Google OAuth connected.', 'info')}>
-                  Google
+                <button type="button" className="social-btn" onClick={() => addToast('Google Workspace Single Sign-On connected.', 'info')}>
+                  Google SSO
                 </button>
-                <button type="button" className="social-btn" onClick={() => addToast('GitHub OAuth connected.', 'info')}>
+                <button type="button" className="social-btn" onClick={() => addToast('GitHub Enterprise connected.', 'info')}>
                   GitHub
                 </button>
               </div>
@@ -540,7 +464,7 @@ export default function App() {
           </div>
         </section>
       ) : (
-        /* Home Page View */
+        /* Home / AI LMS Platform Screen */
         <main>
           {/* Hero Section */}
           <section className="hero-section" id="home">
@@ -548,42 +472,42 @@ export default function App() {
               <div className="hero-content">
                 <div className="badge-pill">
                   <span className="pulse-dot"></span>
-                  <span>New Batches Starting Soon | 100% Placement Assistance</span>
+                  <span>Next-Gen AI Learning Management SaaS</span>
                 </div>
                 <h1 className="hero-title">
-                  Master Tech Skills. <br />
-                  <span className="gradient-text">Build Your Dream Tech Career.</span>
+                  Next-Gen Learning. <br />
+                  <span className="gradient-text">Powered by AI & RAG.</span>
                 </h1>
                 <p className="hero-description">
-                  Fast-track your transition into high-paying software roles. Learn Full Stack, AI & Data Science, Cloud, and DevOps through real-world capstone projects and 1:1 mentorship from top engineering leads.
+                  Bytecode AI transforms traditional training into an autonomous, intelligent LMS. Built with <strong>Prompt Engineering Studios</strong>, <strong>RAG Knowledge Engines</strong>, <strong>24/7 AI Mentors</strong>, and automated <strong>Resume & Interview Preparation Engines</strong>.
                 </p>
 
                 <div className="hero-ctas">
-                  <a href="#courses" className="btn btn-primary btn-lg">
-                    Explore Courses →
+                  <a href="#playground" className="btn btn-primary btn-lg">
+                    Launch AI Playground →
                   </a>
-                  <button className="btn btn-outline btn-lg" onClick={() => setActiveTab('login')}>
-                    Student Portal
+                  <button className="btn btn-outline btn-lg" onClick={() => setDemoModalOpen(true)}>
+                    Request Demo
                   </button>
                 </div>
 
                 <div className="hero-stats-row">
                   <div className="stat-item">
-                    <h3>12,500+</h3>
-                    <p>Students Trained</p>
+                    <h3>99.4%</h3>
+                    <p>RAG Retrieval Accuracy</p>
                   </div>
                   <div className="stat-item">
-                    <h3>96%</h3>
-                    <p>Placement Rate</p>
+                    <h3>24/7</h3>
+                    <p>Autonomous AI Mentorship</p>
                   </div>
                   <div className="stat-item">
-                    <h3>180+</h3>
-                    <p>Hiring Partners</p>
+                    <h3>10x</h3>
+                    <p>Faster Interview Readiness</p>
                   </div>
                 </div>
               </div>
 
-              {/* Terminal Graphic */}
+              {/* Interactive Visual Terminal */}
               <div className="hero-visual">
                 <div className="glass-terminal">
                   <div className="terminal-header">
@@ -592,94 +516,384 @@ export default function App() {
                       <span className="dot-yellow"></span>
                       <span className="dot-green"></span>
                     </div>
-                    <div className="terminal-title">BytecodeCareerRoadmap.ts</div>
-                    <span style={{ fontSize: '0.75rem', color: '#10b981' }}>● Online</span>
+                    <div className="terminal-title">BytecodeAI_Engine_Orchestrator.py</div>
+                    <span style={{ fontSize: '0.75rem', color: '#10b981' }}>● Active Pipeline</span>
                   </div>
                   <div className="terminal-body">
                     <div className="code-line">
-                      <span className="token-comment">// Multi-service enterprise platform</span>
+                      <span className="token-comment"># Initializing Dual-Server Multi-Service Architecture</span>
                     </div>
                     <div className="code-line">
-                      <span className="token-keyword">import</span> &#123; <span className="token-var">Mentorship</span>, <span className="token-var">Projects</span> &#125; <span className="token-keyword">from</span> <span className="token-string">'@bytecode/career'</span>;
+                      <span className="token-keyword">from</span> <span className="token-var">bytecode_ai</span> <span className="token-keyword">import</span> <span className="token-var">RAGEngine, AgentChain, ResumeScorer</span>
+                    </div>
+                    <div className="code-line" style={{ marginTop: '0.5rem' }}>
+                      <span className="token-keyword">rag</span> = <span className="token-var">RAGEngine</span>(embed_dim=<span className="token-string">1536</span>, vector_db=<span className="token-string">"Pinecone"</span>)
                     </div>
                     <div className="code-line">
-                      <span className="token-keyword">const</span> <span className="token-var">candidate</span> = <span className="token-keyword">new</span> <span className="token-var">Student</span>(&#123;
+                      <span className="token-keyword">agent</span> = <span className="token-var">AgentChain</span>(llm=<span className="token-string">"GPT-4o / Claude-3.5"</span>, tools=[<span className="token-string">"CodeRunner"</span>, <span className="token-string">"QuizGen"</span>])
                     </div>
-                    <div className="code-line" style={{ paddingLeft: '1.5rem' }}>
-                      track: <span className="token-string">'Full Stack MERN & AI'</span>,
-                    </div>
-                    <div className="code-line" style={{ paddingLeft: '1.5rem' }}>
-                      handsOnProjects: <span className="token-keyword">12</span>,
-                    </div>
-                    <div className="code-line" style={{ paddingLeft: '1.5rem' }}>
-                      mockInterviews: <span className="token-keyword">true</span>,
-                    </div>
-                    <div className="code-line">&#125;);</div>
                     <div className="code-line">
-                      <span className="token-keyword">await</span> <span className="token-var">candidate</span>.<span className="token-var">launchHighPayingCareer</span>();
+                      <span className="token-keyword">resume</span> = <span className="token-var">ResumeScorer</span>(benchmark=<span className="token-string">"Senior AI Engineer"</span>)
                     </div>
-                    <div className="code-line" style={{ marginTop: '1rem', color: '#34d399' }}>
-                      <span>➜ Status: Placed at Tier-1 Tech Company 🚀</span>
+                    <div className="code-line" style={{ marginTop: '0.75rem', color: '#38bdf8' }}>
+                      <span>➜ [Retrieval]: Matched 4 high-affinity vector syllabus chunks</span>
+                    </div>
+                    <div className="code-line" style={{ color: '#34d399' }}>
+                      <span>➜ [ATS Diagnostics]: Resume Score: 94/100 • 0 Critical Gaps</span>
+                    </div>
+                    <div className="code-line" style={{ color: '#a5b4fc' }}>
+                      <span>➜ [Autonomous Tutor]: Live 1:1 Code Diagnostic Ready 🚀</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="floating-pill pill-1">
-                  <span className="pill-icon">★</span>
-                  <span className="pill-text">Avg. 8.5 LPA Package</span>
+                  <span className="pill-icon">⚡</span>
+                  <span className="pill-text">Zero-Hallucination RAG</span>
                 </div>
                 <div className="floating-pill pill-2">
-                  <span className="pill-icon">💻</span>
-                  <span className="pill-text">100% Live Practice Labs</span>
+                  <span className="pill-icon">🤖</span>
+                  <span className="pill-text">Multi-Agent Autonomy</span>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Hiring Partners Ribbon */}
+          {/* Model Ecosystem Ribbon */}
           <section className="hiring-ribbon">
             <div className="container">
-              <div className="ribbon-label">Our Alumni Work At Top Global Tech Companies</div>
+              <div className="ribbon-label">POWERED BY ENTERPRISE LLM & VECTOR ECOSYSTEMS</div>
               <div className="company-logos">
-                <div className="company-chip">⚡ Google</div>
-                <div className="company-chip">🔷 Microsoft</div>
-                <div className="company-chip">📦 Amazon</div>
-                <div className="company-chip">🚀 Meta</div>
-                <div className="company-chip">💼 TCS</div>
-                <div className="company-chip">🌐 Infosys</div>
-                <div className="company-chip">🎯 Cognizant</div>
+                <div className="company-chip">⚡ OpenAI GPT-4o</div>
+                <div className="company-chip">🔷 Anthropic Claude 3.5</div>
+                <div className="company-chip">🔮 Google Gemini 1.5 Pro</div>
+                <div className="company-chip">🌲 Pinecone Vector DB</div>
+                <div className="company-chip">🦜 LangChain & LangGraph</div>
+                <div className="company-chip">🦙 Meta Llama 3</div>
               </div>
             </div>
           </section>
 
-          {/* Courses Section */}
-          <section className="section" id="courses">
+          {/* =========================================================================
+               Interactive AI Playground (The 4 Core Pillars)
+               ========================================================================= */}
+          <section className="ai-playground-section" id="playground">
             <div className="container">
               <div className="section-head">
-                <span className="badge-pill">Curated Curriculum</span>
-                <h2>Explore Career-Focused <span className="gradient-text">Programs</span></h2>
-                <p>Curated by industry veterans with up-to-date technologies and enterprise project exposure.</p>
+                <span className="badge-pill">Interactive Demonstration</span>
+                <h2>Experience the <span className="gradient-text">AI LMS Engine</span></h2>
+                <p>Test the four foundational pillars engineered to personalize and automate modern technical education.</p>
+              </div>
+
+              {/* Engine Switcher Tabs */}
+              <div className="ai-engine-tabs">
+                <button className={`ai-engine-btn ${engineTab === 'rag' ? 'active' : ''}`} onClick={() => setEngineTab('rag')}>
+                  <span>📚</span> RAG Knowledge Engine
+                </button>
+                <button className={`ai-engine-btn ${engineTab === 'agents' ? 'active' : ''}`} onClick={() => setEngineTab('agents')}>
+                  <span>🤖</span> AI Tutor & Recommendation Agent
+                </button>
+                <button className={`ai-engine-btn ${engineTab === 'prompts' ? 'active' : ''}`} onClick={() => setEngineTab('prompts')}>
+                  <span>⚡</span> Prompt Engineering Studio
+                </button>
+                <button className={`ai-engine-btn ${engineTab === 'interview' ? 'active' : ''}`} onClick={() => setEngineTab('interview')}>
+                  <span>🎯</span> Resume & Interview Prep Engine
+                </button>
+              </div>
+
+              {/* Tab 1: RAG Engine */}
+              {engineTab === 'rag' && (
+                <div className="ai-playground-card">
+                  <div className="rag-grid">
+                    <div className="rag-panel">
+                      <div className="rag-header">
+                        <h4><span>📁</span> Indexed Document Store</h4>
+                        <span className="badge-pill" style={{ margin: 0, padding: '0.2rem 0.6rem' }}>Vector DB: Connected</span>
+                      </div>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
+                        Documents vectorized with OpenAI `text-embedding-3-small` (1536-dim embeddings):
+                      </p>
+
+                      {['SystemDesign-Microservices.pdf', 'LangChain-RAG-Architecture.md', 'DevOps-Kubernetes-Pipelines.pdf'].map((doc, i) => (
+                        <div key={i} className="doc-chip" style={{ cursor: 'pointer', borderColor: ragDoc === doc ? 'var(--primary)' : 'rgba(99, 102, 241, 0.2)' }} onClick={() => setRagDoc(doc)}>
+                          <span>📄 {doc}</span>
+                          <span className="doc-chip-badge">{ragDoc === doc ? 'Active Source' : 'Indexed'}</span>
+                        </div>
+                      ))}
+
+                      <div style={{ marginTop: '1.5rem' }}>
+                        <label className="form-label">Query Knowledge Base</label>
+                        <div className="input-box" style={{ marginBottom: '0.75rem' }}>
+                          <input
+                            type="text"
+                            className="form-control"
+                            value={ragQuery}
+                            onChange={(e) => setRagQuery(e.target.value)}
+                            placeholder="Ask any syllabus or technical concept..."
+                            style={{ paddingLeft: '1rem' }}
+                          />
+                        </div>
+                        <button className="btn btn-primary btn-full" onClick={handleRunRAG} disabled={ragLoading}>
+                          {ragLoading ? 'Searching Vector Chunks...' : 'Run RAG Retrieval Query 🔍'}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="rag-panel">
+                      <div className="rag-header">
+                        <h4><span>⚡</span> Grounded LLM Synthesis</h4>
+                        <span className="doc-chip-badge">{ragResult.score}</span>
+                      </div>
+
+                      <div className="chunk-card">
+                        <div className="chunk-meta">
+                          <span>RETRIEVED VECTOR CHUNK</span>
+                          <span>Cosine: 0.968</span>
+                        </div>
+                        <div className="chunk-text">
+                          {ragResult.chunkPreview}
+                        </div>
+                      </div>
+
+                      <div className="rag-result-box">
+                        <div style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700, marginBottom: '0.4rem', textTransform: 'uppercase' }}>
+                          ✓ Verified Grounded Answer
+                        </div>
+                        <p style={{ fontSize: '0.92rem', color: '#f1f5f9', lineHeight: 1.6 }}>
+                          {ragResult.llmResponse}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 2: AI Agents */}
+              {engineTab === 'agents' && (
+                <div className="ai-playground-card">
+                  <div className="chat-window">
+                    <div className="chat-header">
+                      <div className="agent-badge">
+                        <div className="agent-avatar">AI</div>
+                        <div>
+                          <h5 style={{ fontSize: '0.95rem', margin: 0 }}>Bytecode Autonomous Tutor Agent</h5>
+                          <span style={{ fontSize: '0.75rem', color: '#10b981' }}>● Autonomous Tool Calling & Reasoning Active</span>
+                        </div>
+                      </div>
+                      <span className="badge-pill" style={{ margin: 0 }}>GPT-4o Realtime</span>
+                    </div>
+
+                    <div className="chat-messages">
+                      {chatMessages.map((msg, i) => (
+                        <div key={i} className={`chat-bubble ${msg.sender}`}>
+                          {msg.thought && <div className="agent-thought">🧠 {msg.thought}</div>}
+                          <div>{msg.text}</div>
+                        </div>
+                      ))}
+                      {agentThinking && (
+                        <div className="chat-bubble agent" style={{ fontStyle: 'italic', color: '#a5b4fc' }}>
+                          Thinking & synthesizing syllabus recommendations...
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="quick-prompts">
+                      <button className="quick-chip" onClick={() => handleSendChat('Explain LangChain LCEL vs LangGraph')}>
+                        💡 LCEL vs LangGraph
+                      </button>
+                      <button className="quick-chip" onClick={() => handleSendChat('Review my resume for a Senior AI role')}>
+                        📄 Review My Resume Gaps
+                      </button>
+                      <button className="quick-chip" onClick={() => handleSendChat('Give me a 5-minute system design quiz')}>
+                        📝 Quiz on Microservices
+                      </button>
+                    </div>
+
+                    <div className="chat-input-bar">
+                      <input
+                        type="text"
+                        className="chat-input"
+                        placeholder="Ask your AI Mentor anything about your syllabus or coding..."
+                        value={chatInput}
+                        onChange={(e) => setChatInput(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === 'Enter') handleSendChat(); }}
+                      />
+                      <button className="btn btn-primary btn-sm" onClick={() => handleSendChat()}>
+                        Send ➔
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 3: Prompt Studio */}
+              {engineTab === 'prompts' && (
+                <div className="ai-playground-card">
+                  <div className="model-selector">
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', alignSelf: 'center', marginRight: '0.5rem' }}>Foundation Model:</span>
+                    {['GPT-4o', 'Claude 3.5 Sonnet', 'Gemini 1.5 Pro', 'Llama 3 70B'].map((m) => (
+                      <button key={m} className={`model-chip ${selectedModel === m ? 'selected' : ''}`} onClick={() => setSelectedModel(m)}>
+                        {m}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="prompt-grid">
+                    <div>
+                      <label className="form-label">System Steering Prompt</label>
+                      <textarea
+                        className="prompt-textarea"
+                        value={systemPrompt}
+                        onChange={(e) => setSystemPrompt(e.target.value)}
+                      />
+
+                      <div style={{ margin: '1rem 0' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                          <span>Temperature (Creativity):</span>
+                          <span>{temperature}</span>
+                        </div>
+                        <input
+                          type="range"
+                          min="0"
+                          max="1"
+                          step="0.1"
+                          value={temperature}
+                          onChange={(e) => setTemperature(parseFloat(e.target.value))}
+                          style={{ width: '100%', accentColor: 'var(--primary)' }}
+                        />
+                      </div>
+
+                      <label className="form-label">User Query / Prompt</label>
+                      <textarea
+                        className="prompt-textarea"
+                        style={{ height: '90px' }}
+                        value={userPrompt}
+                        onChange={(e) => setUserPrompt(e.target.value)}
+                      />
+
+                      <button className="btn btn-primary btn-full" style={{ marginTop: '1rem' }} onClick={handleOptimizePrompt}>
+                        ✨ Run & Auto-Optimize Prompt
+                      </button>
+                    </div>
+
+                    <div>
+                      <label className="form-label">Engine Output & Diagnostics</label>
+                      <div style={{ background: 'rgba(10, 15, 29, 0.9)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)', padding: '1.25rem', height: '340px', overflowY: 'auto', fontFamily: 'var(--font-code)', fontSize: '0.88rem', whiteSpace: 'pre-wrap', color: '#e2e8f0', lineHeight: 1.6 }}>
+                        {promptOutput}
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--text-dim)' }}>
+                        <span>Tokens: 184 / 4,096</span>
+                        <span>Latency: 280ms</span>
+                        <span>Evaluation Score: 98.4%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab 4: Interview & Resume Prep Engine */}
+              {engineTab === 'interview' && (
+                <div className="ai-playground-card">
+                  <div className="resume-grid">
+                    <div className="score-card">
+                      <div className="score-circle">
+                        <h3>{atsScore}</h3>
+                        <span>ATS SCORE</span>
+                      </div>
+                      <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Target: {jobRole}</h4>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
+                        Evaluated across 150+ Top Tech Hiring Partner rubrics.
+                      </p>
+
+                      <div className="feedback-item">
+                        <span className="feedback-tag tag-pass">MATCH</span>
+                        <div style={{ textAlign: 'left' }}>
+                          <strong>Core Stack:</strong> TypeScript, React, Node.js, Next.js
+                        </div>
+                      </div>
+
+                      <div className="feedback-item">
+                        <span className="feedback-tag tag-warn">GAP</span>
+                        <div style={{ textAlign: 'left' }}>
+                          <strong>Missing RAG Keywords:</strong> LangGraph, Hybrid Vector Search, Pinecone
+                        </div>
+                      </div>
+
+                      <button className="btn btn-outline btn-full btn-sm" onClick={() => { setAtsScore(96); addToast('Resume re-analyzed with suggested RAG keywords added! Score: 96/100', 'success'); }}>
+                        ⚡ Auto-Inject Missing Keywords
+                      </button>
+                    </div>
+
+                    <div className="rag-panel">
+                      <div className="rag-header">
+                        <h4><span>🎙️</span> AI Mock Technical Interview Simulator</h4>
+                        <span className="doc-chip-badge">Voice & Code Sync</span>
+                      </div>
+
+                      <div style={{ background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.25)', borderRadius: 'var(--radius-md)', padding: '1.25rem', marginBottom: '1.5rem' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--secondary)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+                          CURRENT AI INTERVIEWER QUESTION
+                        </div>
+                        <p style={{ fontSize: '0.95rem', color: '#f8fafc', fontWeight: 500, lineHeight: 1.5 }}>
+                          "{mockQuestion}"
+                        </p>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="form-label">Your Answer / Approach</label>
+                        <textarea
+                          className="prompt-textarea"
+                          style={{ height: '90px' }}
+                          placeholder="Type or speak your answer (e.g., hierarchical chunking, summary vectors, contextual re-ranking)..."
+                        />
+                      </div>
+
+                      <div style={{ display: 'flex', gap: '0.75rem' }}>
+                        <button className="btn btn-primary btn-full" onClick={() => addToast('Answer evaluated! Feedback: Excellent focus on Re-ranking and Parent-Child chunking. Score: 9.2/10.', 'success')}>
+                          Evaluate Technical Answer ➔
+                        </button>
+                        <button className="btn btn-outline" onClick={() => { setMockQuestion('How does speculative decoding improve LLM token generation latency?'); addToast('Generated new senior technical question.', 'info'); }}>
+                          Next Question ⟳
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* =========================================================================
+               Curated AI Curriculum Tracks
+               ========================================================================= */}
+          <section className="section" id="curriculum">
+            <div className="container">
+              <div className="section-head">
+                <span className="badge-pill">Enterprise Curriculum</span>
+                <h2>Master the Leading <span className="gradient-text">AI Architectures</span></h2>
+                <p>Designed for engineers transitioning to production Generative AI, RAG, and Autonomous Multi-Agent systems.</p>
               </div>
 
               <div className="filter-tabs">
-                <button className={`tab-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>All Programs</button>
-                <button className={`tab-btn ${activeFilter === 'web' ? 'active' : ''}`} onClick={() => setActiveFilter('web')}>Full Stack Web</button>
-                <button className={`tab-btn ${activeFilter === 'ai' ? 'active' : ''}`} onClick={() => setActiveFilter('ai')}>AI & Data Science</button>
-                <button className={`tab-btn ${activeFilter === 'cloud' ? 'active' : ''}`} onClick={() => setActiveFilter('cloud')}>Cloud & DevOps</button>
+                <button className={`tab-btn ${activeCourseFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveCourseFilter('all')}>All Tracks</button>
+                <button className={`tab-btn ${activeCourseFilter === 'rag' ? 'active' : ''}`} onClick={() => setActiveCourseFilter('rag')}>RAG & Vector Search</button>
+                <button className={`tab-btn ${activeCourseFilter === 'agents' ? 'active' : ''}`} onClick={() => setActiveCourseFilter('agents')}>Autonomous Agents</button>
+                <button className={`tab-btn ${activeCourseFilter === 'prompts' ? 'active' : ''}`} onClick={() => setActiveCourseFilter('prompts')}>Prompt Studio</button>
+                <button className={`tab-btn ${activeCourseFilter === 'interview' ? 'active' : ''}`} onClick={() => setActiveCourseFilter('interview')}>Career & Interview</button>
               </div>
 
               <div className="courses-grid">
-                {courses.map((course) => (
-                  <div key={course._id || course.title} className="course-card">
+                {filteredCourses.map((course) => (
+                  <div key={course._id} className="course-card">
                     <div className="course-top">
                       <span className="course-tag">{course.tag}</span>
-                      <div className="course-rating">★ {course.rating} ({course.reviewsCount || 1000} reviews)</div>
+                      <span style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 600 }}>{course.modelTag}</span>
                     </div>
                     <h3>{course.title}</h3>
                     <p>{course.description}</p>
                     <ul className="course-features">
-                      {course.highlights && course.highlights.map((h, i) => (
-                        <li key={i}>
+                      {course.highlights.map((h, idx) => (
+                        <li key={idx}>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
                           {h}
                         </li>
@@ -687,14 +901,11 @@ export default function App() {
                     </ul>
                     <div className="course-footer">
                       <div className="course-fee">
-                        <span className="fee-label">Course Fee</span>
-                        <span className="fee-val">₹{course.fee ? course.fee.toLocaleString() : '24,999'}</span>
+                        <span className="fee-label">Enterprise Access</span>
+                        <span className="fee-val">₹{course.fee.toLocaleString()}</span>
                       </div>
-                      <button
-                        className="btn btn-primary btn-sm"
-                        onClick={() => { setSelectedCourse(course.title); setEnrollModalOpen(true); }}
-                      >
-                        Enroll Now
+                      <button className="btn btn-primary btn-sm" onClick={() => setDemoModalOpen(true)}>
+                        Start Module
                       </button>
                     </div>
                   </div>
@@ -703,135 +914,108 @@ export default function App() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
-          <section className="section" id="whyUs" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
+          {/* =========================================================================
+               SaaS Pricing Tiers
+               ========================================================================= */}
+          <section className="section" id="pricing" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
             <div className="container">
               <div className="section-head">
-                <span className="badge-pill">The Bytecode Advantage</span>
-                <h2>Why Engineers Choose <span className="gradient-text">Bytecode Trainings</span></h2>
-                <p>We bridge the gap between academic theory and high-growth industry standards.</p>
+                <span className="badge-pill">SaaS Subscription</span>
+                <h2>Flexible Plans for <span className="gradient-text">Engineers & Teams</span></h2>
+                <p>Deploy AI-powered learning across individual engineers or entire enterprise organizations.</p>
+              </div>
+
+              <div className="pricing-grid">
+                {/* Free Tier */}
+                <div className="pricing-card">
+                  <h4>Learner Free</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Foundational AI & prompt engineering access</p>
+                  <div className="pricing-price">$0 <span>/ month</span></div>
+                  <ul className="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> 100 RAG queries / month</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> 24/7 AI Community Tutor Chatbot</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> 2 Resume ATS evaluations</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Access to core curriculum</li>
+                  </ul>
+                  <button className="btn btn-outline btn-full" onClick={() => setActiveTab('login')}>Get Started Free</button>
+                </div>
+
+                {/* Pro Tier (Featured) */}
+                <div className="pricing-card featured">
+                  <div className="pricing-badge">Most Popular</div>
+                  <h4>Pro Engineer</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>For serious engineers targeting top AI roles</p>
+                  <div className="pricing-price">$29 <span>/ month</span></div>
+                  <ul className="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Unlimited RAG Knowledge queries</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Multi-Agent Autonomous Code Reviewer</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Unlimited AI Mock Interviews & ATS Scorer</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> GPT-4o & Claude 3.5 Sonnet access</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Verified Certificate & Placement Drive</li>
+                  </ul>
+                  <button className="btn btn-primary btn-full" onClick={() => setDemoModalOpen(true)}>Start 14-Day Pro Trial</button>
+                </div>
+
+                {/* Enterprise Tier */}
+                <div className="pricing-card">
+                  <h4>Enterprise Academy</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Custom AI LMS deployment for organizations</p>
+                  <div className="pricing-price">$99 <span>/ seat / mo</span></div>
+                  <ul className="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Custom private vector database (VPC)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Fine-tuned models on company codebase</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Enterprise SSO (Okta, Azure AD, Google)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> Dedicated AI Solution Architect & SLA</li>
+                  </ul>
+                  <button className="btn btn-outline btn-full" onClick={() => setDemoModalOpen(true)}>Schedule Team Demo</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* =========================================================================
+               Architecture Section
+               ========================================================================= */}
+          <section className="section" id="architecture">
+            <div className="container">
+              <div className="section-head">
+                <span className="badge-pill">Vercel Multi-Service Pipeline</span>
+                <h2>Enterprise Platform <span className="gradient-text">Architecture</span></h2>
+                <p>Engineered with dual server isolation on Vercel services for optimal edge latency and throughput.</p>
               </div>
 
               <div className="features-grid">
                 <div className="feature-box">
                   <div className="feature-icon">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                   </div>
-                  <h4>1:1 Elite Mentorship</h4>
-                  <p>Learn directly from Senior Architects & Tech Leads working at Google, Microsoft, and top product MNCs.</p>
+                  <h4>Frontend Service (`client`)</h4>
+                  <p>Vite + React single-page application deployed on Vercel Edge with zero-latency client state management and streaming UI.</p>
                 </div>
+
                 <div className="feature-box">
                   <div className="feature-icon">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
                   </div>
-                  <h4>Production-Grade Projects</h4>
-                  <p>No toy apps or basic to-do lists. Build real-time scalable web systems, AI pipelines, and cloud infrastructures.</p>
+                  <h4>Backend API Service (`server`)</h4>
+                  <p>Express.js REST microservices handling authenticated JWT sessions, vector database connectors, and MongoDB storage.</p>
                 </div>
+
                 <div className="feature-box">
                   <div className="feature-icon">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
                   </div>
-                  <h4>100% Placement Drives</h4>
-                  <p>Dedicated corporate placement cell with resume building, mock interviews, and direct referrals to 180+ hiring partners.</p>
+                  <h4>Unified Vercel Routing</h4>
+                  <p>Configured with `vercel.json` top-level rewrites routing `/(.*)` to frontend and `/api/(.*)` to server without CORS overhead.</p>
                 </div>
+
                 <div className="feature-box">
                   <div className="feature-icon">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                   </div>
-                  <h4>Lifetime LMS & Lab Access</h4>
-                  <p>Never miss a session. Get lifetime access to class recordings, source code repositories, and community forum.</p>
+                  <h4>Enterprise Data Security</h4>
+                  <p>SOC-2 ready with encrypted in-memory and MongoDB session storage, RBAC roles, and isolated tenant environments.</p>
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Testimonials */}
-          <section className="section" id="reviews">
-            <div className="container">
-              <div className="section-head">
-                <span className="badge-pill">Alumni Success</span>
-                <h2>Hear From Our <span className="gradient-text">Graduates</span></h2>
-                <p>From non-IT to software architects—read how Bytecode transformed their careers.</p>
-              </div>
-
-              <div className="testimonials-grid">
-                <div className="review-card">
-                  <div className="review-stars">★★★★★</div>
-                  <p className="review-text">"I transitioned from a mechanical background to Full Stack Developer within 4 months! The mentors helped me review every pull request and prepped me for real interviews."</p>
-                  <div className="review-author">
-                    <div className="author-avatar">RK</div>
-                    <div className="author-meta">
-                      <h5>Rahul Kumar</h5>
-                      <p>Software Engineer @ Amazon (12 LPA)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="review-card">
-                  <div className="review-stars">★★★★★</div>
-                  <p className="review-text">"The GenAI and Data Science track is unmatched. The hands-on exposure to LangChain, Vector databases, and LLM fine-tuning was exactly what tech companies were looking for."</p>
-                  <div className="review-author">
-                    <div className="author-avatar" style={{ background: 'linear-gradient(135deg, #06b6d4, #3b82f6)' }}>PS</div>
-                    <div className="author-meta">
-                      <h5>Pooja Sharma</h5>
-                      <p>AI Engineer @ Cognizant (14.5 LPA)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="review-card">
-                  <div className="review-stars">★★★★★</div>
-                  <p className="review-text">"Bytecode's DevOps course gave me hands-on confidence with Kubernetes and Terraform on AWS sandbox. Secured 3 offers right after the mock interview series!"</p>
-                  <div className="review-author">
-                    <div className="author-avatar" style={{ background: 'linear-gradient(135deg, #10b981, #06b6d4)' }}>SV</div>
-                    <div className="author-meta">
-                      <h5>Sai Vardhan</h5>
-                      <p>DevOps Lead @ Tech Mahindra</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section className="section" id="faq" style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
-            <div className="container">
-              <div className="section-head">
-                <span className="badge-pill">Got Questions?</span>
-                <h2>Frequently Asked <span className="gradient-text">Questions</span></h2>
-                <p>Everything you need to know about our batches, placement support, and eligibility.</p>
-              </div>
-
-              <div className="faq-container">
-                {[
-                  {
-                    q: 'Are there any prerequisites to join Bytecode Trainings?',
-                    a: 'No prior coding experience is needed for our beginner-to-advanced tracks. We start from foundational programming concepts and guide you step-by-step through advanced frameworks and system design.'
-                  },
-                  {
-                    q: 'How does the 100% placement support work?',
-                    a: 'Our dedicated placement team conducts resume workshops, LinkedIn branding, 1-on-1 technical and HR mock interviews, and schedules direct interview drives with our 180+ hiring partner companies until you get placed.'
-                  },
-                  {
-                    q: 'What if I miss a live class?',
-                    a: 'All live sessions are recorded in HD and uploaded to your student portal within 2 hours. You retain lifetime access to these recordings, project files, and mentor Q&A channels.'
-                  },
-                  {
-                    q: 'Are weekend and evening batches available?',
-                    a: 'Yes, we have both weekday (morning & evening) and dedicated weekend batches tailored for working professionals and university students.'
-                  }
-                ].map((faq, idx) => (
-                  <div key={idx} className={`faq-item ${openFaq === idx ? 'active' : ''}`}>
-                    <button className="faq-question" onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}>
-                      <span>{faq.q}</span>
-                      <span className="faq-chevron">▼</span>
-                    </button>
-                    <div className="faq-answer">
-                      <p>{faq.a}</p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
@@ -839,15 +1023,15 @@ export default function App() {
           {/* CTA Banner */}
           <section className="container" style={{ margin: '4rem auto' }}>
             <div className="cta-banner">
-              <h2>Ready to Elevate Your Tech Career?</h2>
-              <p>Join thousands of learners who upgraded their skills and landed high-growth engineering roles.</p>
+              <h2>Transform Your Academy with Bytecode AI LMS</h2>
+              <p>Harness the power of Retrieval-Augmented Generation, Autonomous AI Tutors, and Interview Optimizers today.</p>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                <button className="btn btn-primary btn-lg" onClick={() => { setSelectedCourse('General Consultation'); setEnrollModalOpen(true); }}>
-                  Book Free Counseling
+                <button className="btn btn-primary btn-lg" onClick={() => setDemoModalOpen(true)}>
+                  Schedule Live Enterprise Demo
                 </button>
-                <button className="btn btn-outline btn-lg" onClick={() => setActiveTab('login')}>
-                  Sign In to Portal
-                </button>
+                <a href="#playground" className="btn btn-outline btn-lg">
+                  Explore Interactive Playground
+                </a>
               </div>
             </div>
           </section>
@@ -859,53 +1043,51 @@ export default function App() {
                 <div className="footer-col">
                   <div className="logo" style={{ marginBottom: '1.25rem' }}>
                     <div className="logo-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4"></path></svg>
                     </div>
-                    <span className="logo-text">Bytecode<span>Trainings</span></span>
+                    <span className="logo-text">Bytecode<span style={{ color: '#06b6d4' }}>.AI</span> LMS</span>
                   </div>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                    Empowering aspiring developers and engineers with industry-aligned skills, practical projects, and personalized mentoring.
+                    Autonomous AI-Powered Learning Management System. Equipping developers and engineering teams with live RAG, Prompt Engineering, and Career AI.
                   </p>
                 </div>
 
                 <div className="footer-col">
-                  <h4>Popular Courses</h4>
+                  <h4>AI Platform Engines</h4>
                   <ul className="footer-links">
-                    <li><a href="#courses">Full Stack MERN Dev</a></li>
-                    <li><a href="#courses">Generative AI & LLMs</a></li>
-                    <li><a href="#courses">AWS Cloud & DevOps</a></li>
-                    <li><a href="#courses">Java Spring Boot</a></li>
-                    <li><a href="#courses">Data Analytics & Power BI</a></li>
+                    <li><button onClick={() => { setActiveTab('home'); setEngineTab('rag'); }}>RAG Knowledge Engine</button></li>
+                    <li><button onClick={() => { setActiveTab('home'); setEngineTab('agents'); }}>Autonomous AI Agents</button></li>
+                    <li><button onClick={() => { setActiveTab('home'); setEngineTab('prompts'); }}>Prompt Engineering Studio</button></li>
+                    <li><button onClick={() => { setActiveTab('home'); setEngineTab('interview'); }}>Interview & Resume Scorer</button></li>
                   </ul>
                 </div>
 
                 <div className="footer-col">
                   <h4>Quick Links</h4>
                   <ul className="footer-links">
-                    <li><a href="#whyUs">Why Choose Us</a></li>
-                    <li><a href="#reviews">Success Stories</a></li>
-                    <li><a href="#faq">FAQs</a></li>
-                    <li><button onClick={() => setActiveTab('login')}>Student Login</button></li>
-                    <li><button onClick={() => { setActiveTab('login'); setAuthMode('register'); }}>Register Account</button></li>
+                    <li><a href="#playground">Interactive Playground</a></li>
+                    <li><a href="#curriculum">Programs & Syllabus</a></li>
+                    <li><a href="#pricing">SaaS Pricing</a></li>
+                    <li><button onClick={() => setActiveTab('login')}>Sign In to Portal</button></li>
                   </ul>
                 </div>
 
                 <div className="footer-col">
-                  <h4>Stay Updated</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Get weekly tech insights, free webinar invites, and course discounts.</p>
-                  <form className="newsletter-form" onSubmit={(e) => { e.preventDefault(); addToast('Subscribed to Bytecode newsletter!', 'success'); }}>
+                  <h4>Stay Ahead in AI</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Receive weekly RAG engineering breakdowns, prompt benchmarks, and model updates.</p>
+                  <form className="newsletter-form" onSubmit={(e) => { e.preventDefault(); addToast('Subscribed to Bytecode AI Research Dispatch!', 'success'); }}>
                     <input type="email" placeholder="Your work email..." className="newsletter-input" required />
-                    <button type="submit" className="btn btn-primary btn-sm">Join</button>
+                    <button type="submit" className="btn btn-primary btn-sm">Subscribe</button>
                   </form>
                 </div>
               </div>
 
               <div className="footer-bottom">
-                <div>&copy; 2026 Bytecode Trainings. All rights reserved.</div>
+                <div>&copy; 2026 Bytecode AI LMS. All rights reserved.</div>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
                   <a href="#home" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Privacy Policy</a>
                   <a href="#home" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Terms of Service</a>
-                  <a href="#home" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Security</a>
+                  <a href="#home" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Security Compliance</a>
                 </div>
               </div>
             </div>
@@ -913,79 +1095,80 @@ export default function App() {
         </main>
       )}
 
-      {/* Course Enrollment Modal */}
-      {enrollModalOpen && (
-        <div className="modal-overlay active" onClick={(e) => { if (e.target.classList.contains('modal-overlay')) setEnrollModalOpen(false); }}>
+      {/* Enterprise Demo Modal */}
+      {demoModalOpen && (
+        <div className="modal-overlay active" onClick={(e) => { if (e.target.classList.contains('modal-overlay')) setDemoModalOpen(false); }}>
           <div className="modal-card">
-            <button className="modal-close" onClick={() => setEnrollModalOpen(false)}>✕</button>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Enroll in: {selectedCourse}</h3>
+            <button className="modal-close" onClick={() => setDemoModalOpen(false)}>✕</button>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Request Enterprise AI LMS Demo</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              Fill in your details and our education counselor will call you with syllabus & batch timings.
+              Schedule a personalized walkthrough of the RAG engine, automated interview builder, and custom vector store for your organization.
             </p>
 
-            <form onSubmit={handleEnrollSubmit}>
+            <form onSubmit={handleDemoSubmit}>
               <div className="form-group">
                 <label className="form-label">Full Name</label>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="e.g. Rahul Sharma"
+                  placeholder="e.g. Sarah Jenkins"
                   style={{ paddingLeft: '1rem' }}
-                  value={enrollForm.name}
-                  onChange={(e) => setEnrollForm({ ...enrollForm, name: e.target.value })}
+                  value={demoForm.name}
+                  onChange={(e) => setDemoForm({ ...demoForm, name: e.target.value })}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Email Address</label>
+                <label className="form-label">Work Email</label>
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="e.g. rahul@example.com"
+                  placeholder="sarah@company.com"
                   style={{ paddingLeft: '1rem' }}
-                  value={enrollForm.email}
-                  onChange={(e) => setEnrollForm({ ...enrollForm, email: e.target.value })}
+                  value={demoForm.email}
+                  onChange={(e) => setDemoForm({ ...demoForm, email: e.target.value })}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Phone / WhatsApp Number</label>
+                <label className="form-label">Company / Institute Name</label>
                 <input
-                  type="tel"
+                  type="text"
                   className="form-control"
-                  placeholder="e.g. +91 98765 43210"
+                  placeholder="e.g. Acme Tech Academy"
                   style={{ paddingLeft: '1rem' }}
-                  value={enrollForm.phone}
-                  onChange={(e) => setEnrollForm({ ...enrollForm, phone: e.target.value })}
+                  value={demoForm.company}
+                  onChange={(e) => setDemoForm({ ...demoForm, company: e.target.value })}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Preferred Batch</label>
+                <label className="form-label">Estimated Learners / Seats</label>
                 <select
                   className="form-control"
-                  value={enrollForm.batch}
-                  onChange={(e) => setEnrollForm({ ...enrollForm, batch: e.target.value })}
+                  value={demoForm.learnersCount}
+                  onChange={(e) => setDemoForm({ ...demoForm, learnersCount: e.target.value })}
                   style={{ paddingLeft: '1rem', background: '#1e293b', color: '#fff' }}
                 >
-                  <option value="weekend">Weekend Live Batch (Sat & Sun)</option>
-                  <option value="weekday-evening">Weekday Evening (7:30 PM - 9:30 PM)</option>
-                  <option value="weekday-morning">Weekday Morning (8:00 AM - 10:00 AM)</option>
+                  <option value="10-50">10 - 50 Seats</option>
+                  <option value="50-250">50 - 250 Seats</option>
+                  <option value="250-1000">250 - 1,000 Seats</option>
+                  <option value="1000+">1,000+ Enterprise Seats</option>
                 </select>
               </div>
 
               <button type="submit" className="btn btn-primary btn-full btn-lg" style={{ marginTop: '1rem' }}>
-                Submit Enrollment Inquiry
+                Confirm Demo Request ➔
               </button>
             </form>
           </div>
         </div>
       )}
 
-      {/* Floating Toasts */}
+      {/* Floating Notification Toasts */}
       <div className="toast-container">
         {toasts.map((toast) => (
           <div key={toast.id} className={`toast ${toast.type}`}>

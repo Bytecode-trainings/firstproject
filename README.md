@@ -1,39 +1,49 @@
-# Bytecode Trainings Web Portal
+# Bytecode AI LMS — Autonomous AI-Powered Learning Management Platform
 
-Official modern web application for **Bytecode Trainings**, designed to provide students and working professionals with a modern, high-impact learning experience.
+Enterprise-grade AI SaaS Learning Management System built with a **Vercel Multi-Service Architecture** (`client` Vite SPA + `server` Express API).
 
-![Bytecode Trainings Hero](https://github.com/Bytecode-trainings/firstproject/raw/main/hero.png)
+![Bytecode AI LMS](https://img.shields.io/badge/Platform-Bytecode%20AI%20LMS-6366f1)
+![Architecture](https://img.shields.io/badge/Architecture-Vercel%20Services%20(Client%20+%20Server)-06b6d4)
+![AI Models](https://img.shields.io/badge/Models-GPT--4o%20%7C%20Claude%203.5%20%7C%20Gemini%201.5-10b981)
 
-## 🚀 Features
+## 🌟 Foundational AI Pillars
 
-- **Dynamic Course Discovery**: Filter through Full Stack, Generative AI & Data Science, Cloud & DevOps, and Enterprise Java courses.
-- **Student & Mentor Portal**: Seamless sign-in and registration workflow with role selection (Student, Mentor, Recruiter), password toggle, and social OAuth simulation.
-- **Lead Enrollment System**: Interactive modal with custom course tracking and inquiry submission.
-- **Engaging UI/UX**: Dark mode glassmorphism aesthetics, glowing accent tokens, code terminal preview, interactive counters, and collapsible FAQ accordions.
-- **Zero-Dependency Architecture**: Built using pure semantic HTML5, modular CSS3, and vanilla JavaScript (ES6+).
+1. **Prompt Engineering Studio & Test Bench**:
+   - Multi-model evaluation playground (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3 70B).
+   - Dynamic system steering, temperature controls, few-shot prompting, and automated token/latency diagnostic benchmarks.
+2. **RAG Knowledge Engines (Retrieval-Augmented Generation)**:
+   - Multi-document vector indexing with 1536-dim embeddings.
+   - Grounded syllabus semantic search, cosine similarity ranking, and zero-hallucination source citation synthesis.
+3. **Autonomous AI Tutor & Recommendation Agents**:
+   - 24/7 self-directed interactive tutor chatbot equipped with Chain-of-Thought reasoning.
+   - Adaptive curriculum path recommendations based on individual student mastery and performance gaps.
+4. **Interview Preparation & Career Acceleration Engine**:
+   - Real-time ATS resume keyword analyzer with percentage match scoring.
+   - Interactive technical mock interview simulator with automated answer grading rubrics.
 
-## 📁 Project Structure
+## 🏗️ Multi-Service Architecture
 
 ```
-├── index.html           # Main Landing / Home Page
-├── login.html           # Student & Mentor Portal (Sign In / Register)
-├── css/
-│   └── style.css        # Custom Design System & Responsive Styles
-├── js/
-│   ├── main.js          # Interactive UI Logic (Filters, Modal, FAQ, Stats)
-│   └── auth.js          # Authentication & Portal Logic
-├── vercel.json          # Vercel Deployment Configuration
-└── package.json         # Project Metadata
+├── vercel.json           # Vercel Services Routing (rewrites /(.*) to client, /api/(.*) to server)
+├── package.json          # Root orchestration scripts
+├── client/               # Service: "client" (Vite + React SPA)
+│   ├── src/
+│   │   ├── App.jsx       # Interactive AI Engines, RAG Visualizer, Tutor Chatbot & Curriculum
+│   │   └── index.css     # Dark-mode glassmorphic AI design system
+│   ├── vite.config.js    # Local development proxy (/api -> localhost:5000)
+│   └── package.json
+└── server/               # Service: "server" (Express & Node.js API)
+    ├── controllers/      # RAG courses, leads, and authentication
+    ├── models/           # MongoDB schemas with resilient in-memory fallback
+    ├── routes/           # /api/auth, /api/courses, /api/leads, /api/health
+    └── server.js         # Express server with default export for Vercel
 ```
 
-## 🌐 Deploy to Vercel
+## 🚀 Deployment to Vercel
 
-This repository is optimized for one-click deployment on [Vercel](https://vercel.com):
-
-1. Go to your [Vercel Dashboard](https://vercel.com/dashboard).
-2. Click **Add New...** -> **Project**.
-3. Import the `Bytecode-trainings/firstproject` repository.
-4. Keep the default settings and click **Deploy**.
+The repository is configured for automatic multi-service deployment:
+- Push commits to `main` branch on GitHub: [Bytecode-trainings/firstproject](https://github.com/Bytecode-trainings/firstproject).
+- Vercel automatically builds both services independently and routes all traffic seamlessly under your unified domain.
 
 ---
-© 2026 Bytecode Trainings. All rights reserved.
+© 2026 Bytecode AI. All rights reserved.

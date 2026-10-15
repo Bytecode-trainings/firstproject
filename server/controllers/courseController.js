@@ -2,70 +2,100 @@ import Course from '../models/Course.js';
 
 export const defaultCourses = [
   {
-    title: 'Full Stack Web Development (MERN / Python)',
-    category: 'web',
-    tag: 'Full Stack',
-    description: 'Master React, Node.js, Express, MongoDB, Next.js, and TypeScript with 5 enterprise-grade portfolio projects.',
-    duration: '16 Weeks (Live + Lab)',
-    fee: 24999,
-    rating: 4.9,
-    reviewsCount: 1800,
-    highlights: ['Duration: 16 Weeks (Live + Lab)', '1:1 Code Reviews & GitHub Portfolio', 'Guaranteed Placement Drive Access']
-  },
-  {
-    title: 'Generative AI & Data Science Masterclass',
-    category: 'ai',
-    tag: 'Trending',
-    description: 'From Python, Pandas & Scikit-Learn to Deep Learning, LLMs, LangChain, Vector DBs, and Agentic AI workflows.',
-    duration: '18 Weeks (Live Interactive)',
-    fee: 29999,
-    rating: 4.95,
-    reviewsCount: 2300,
-    highlights: ['Duration: 18 Weeks (Live Interactive)', 'Build & Deploy Production LLM Apps', 'Kaggle & Open Source Contributions']
-  },
-  {
-    title: 'Cloud Engineering & DevOps with AWS & K8s',
-    category: 'cloud',
-    tag: 'High Demand',
-    description: 'Master Linux, Docker, Kubernetes, Terraform, CI/CD pipelines, AWS Architecture, and Production Monitoring.',
-    duration: '14 Weeks (Hands-on Labs)',
-    fee: 27999,
-    rating: 4.88,
-    reviewsCount: 1200,
-    highlights: ['Duration: 14 Weeks (Hands-on Labs)', 'Real AWS Cloud Sandbox Access', 'AWS Certified Solutions Architect Prep']
-  },
-  {
-    title: 'Enterprise Java Full Stack (Spring Boot & Microservices)',
-    category: 'web',
-    tag: 'Java Track',
-    description: 'Core Java, Spring Boot 3, Microservices Architecture, Hibernate, Docker, and Angular/React UI integration.',
+    title: 'Enterprise RAG & Hybrid Vector Search',
+    category: 'rag',
+    tag: 'RAG Engine',
+    modelTag: 'Pinecone • LangChain',
+    rating: 4.96,
+    reviewsCount: 2450,
+    description: 'Build production-ready Retrieval-Augmented Generation systems with multi-document chunking, hybrid BM25 + dense vector embeddings, and re-ranking.',
     duration: '16 Weeks',
-    fee: 22999,
-    rating: 4.85,
-    reviewsCount: 950,
-    highlights: ['Duration: 16 Weeks', 'Enterprise Microservices Project', 'System Design & DSA Module']
+    fee: 29999,
+    highlights: [
+      'Multi-Modal Document Parsing & Chunking',
+      'Vector DBs: Pinecone, Qdrant & ChromaDB',
+      'Advanced RAG: Contextual Compression & Cohere Re-rank'
+    ]
   },
   {
-    title: 'Python & Data Analytics with PowerBI',
-    category: 'ai',
-    tag: 'Fast Track',
-    description: 'Learn Data Cleaning, Exploratory Analysis, SQL, Advanced Excel, Power BI Dashboards, and Predictive Modeling.',
+    title: 'Autonomous AI Agents & Multi-Agent Systems',
+    category: 'agents',
+    tag: 'AI Agents',
+    modelTag: 'LangGraph • CrewAI',
+    rating: 4.98,
+    reviewsCount: 3100,
+    description: 'Architect self-directed autonomous agent workflows, tool calling, memory persistence, human-in-the-loop validation, and multi-agent coordination.',
+    duration: '18 Weeks',
+    fee: 34999,
+    highlights: [
+      'ReAct Pattern & Planning Algorithms',
+      'CrewAI & LangGraph Multi-Agent Teams',
+      'Autonomous Code Execution & Web Browsing Agents'
+    ]
+  },
+  {
+    title: 'Prompt Engineering & LLM Evaluation Bench',
+    category: 'prompts',
+    tag: 'Prompt Studio',
+    modelTag: 'GPT-4o • Claude 3.5',
+    rating: 4.92,
+    reviewsCount: 1850,
+    description: 'Master advanced prompt architecture: Few-shot, Chain-of-Thought, ReAct, System Steering, Jailbreak Defense, and Ragas/TruLens automated evaluation.',
+    duration: '10 Weeks',
+    fee: 19999,
+    highlights: [
+      'Zero-Shot to Few-Shot Dynamic Prompting',
+      'LLM-as-a-Judge & Automated Evaluation',
+      'Guardrails, Toxicity Filtering & Output Validation'
+    ]
+  },
+  {
+    title: 'AI Interview Engine & Resume Career Accelerator',
+    category: 'interview',
+    tag: 'Career AI',
+    modelTag: 'ATS Scorer • Voice AI',
+    rating: 4.95,
+    reviewsCount: 2900,
+    description: 'Leverage LLMs for automated resume ATS scoring, technical gap discovery, and realistic voice-enabled AI mock interviews with instant behavioral analytics.',
     duration: '12 Weeks',
-    fee: 18999,
-    rating: 4.91,
-    reviewsCount: 1400,
-    highlights: ['Duration: 12 Weeks', 'Real Business Case Studies', 'Interactive Dashboard Portfolio']
+    fee: 24999,
+    highlights: [
+      'Real-time ATS Resume Parser & Keyword Matcher',
+      'Interactive AI Mock Technical Interviews',
+      'Instant Diagnostic Feedback & Placement Assistance'
+    ]
   },
   {
-    title: 'Cyber Security & Ethical Hacking',
-    category: 'cloud',
-    tag: 'Security',
-    description: 'Network security, penetration testing, Kali Linux, Web Application Security (OWASP Top 10), and SOC Analyst essentials.',
+    title: 'Full Stack AI Engineering (Next.js & Vercel AI SDK)',
+    category: 'rag',
+    tag: 'Full Stack AI',
+    modelTag: 'Vercel AI • Next.js 15',
+    rating: 4.94,
+    reviewsCount: 1640,
+    description: 'Design streaming AI user experiences, tool invocations, server actions, generative UI, and resilient backend pipelines for enterprise SaaS apps.',
     duration: '14 Weeks',
-    fee: 26999,
-    rating: 4.87,
-    reviewsCount: 820,
-    highlights: ['Duration: 14 Weeks', 'Live CTF Challenges & Virtual Labs', 'CEH & CompTIA Security+ Aligned']
+    fee: 27999,
+    highlights: [
+      'Vercel AI SDK Core & Generative UI Components',
+      'Streaming Responses & Function Calling',
+      'Full Stack TypeScript & Vector Database Integration'
+    ]
+  },
+  {
+    title: 'Open Source LLM Fine-Tuning & Local Deployment',
+    category: 'agents',
+    tag: 'Model Ops',
+    modelTag: 'Llama 3 • vLLM • LoRA',
+    rating: 4.89,
+    reviewsCount: 1320,
+    description: 'Fine-tune open-weight models using LoRA and QLoRA on domain datasets. Quantize and deploy blazing-fast inference endpoints using vLLM and Ollama.',
+    duration: '16 Weeks',
+    fee: 32999,
+    highlights: [
+      'Dataset Synthesis & LoRA/QLoRA Parameter Tuning',
+      'vLLM High-Throughput Serving & Triton Inference',
+      'Private Model Deployment on AWS GPU Clusters'
+    ]
   }
 ];
 

@@ -1,9 +1,14 @@
 {
-  "name": "bytecode-trainings-app",
+  "name": "bytecode-trainings-platform",
   "version": "1.0.0",
-  "description": "Bytecode Trainings - Premium EdTech Web Portal",
+  "description": "Bytecode Trainings Multi-Service Platform (Vite Client & Express Server)",
+  "private": true,
   "scripts": {
-    "dev": "npx serve .",
-    "start": "npx serve ."
+    "dev": "vercel dev",
+    "dev:local": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }

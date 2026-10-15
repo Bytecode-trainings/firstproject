@@ -58,6 +58,10 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Bytecode Trainings Express Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Bytecode Trainings Express Server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

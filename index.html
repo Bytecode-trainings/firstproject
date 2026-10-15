@@ -3,556 +3,735 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bytecode Trainings | Industry-Leading Tech Courses & Placement Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#090d16">
+  <title>Bytecode AI | Autonomous AI LMS for Active IT Job Seekers</title>
   <meta name="description"
-    content="Master in-demand software skills with Bytecode Trainings. Live mentorship in Full Stack Web Development, AI & Data Science, Cloud & DevOps with 100% placement assistance.">
+    content="Next-generation autonomous AI LMS engineered for active IT job seekers. Practice real-time AI mock interviews, test ATS resume scores against 150+ tech hiring rubrics, and master production RAG and Prompt Engineering.">
   <meta name="keywords"
-    content="Bytecode Trainings, Full Stack Developer, AI Course, Data Science, DevOps, Cloud Computing, Software Training">
+    content="Bytecode AI LMS, IT Job Seekers, AI Mock Interview, ATS Resume Scorer, Prompt Engineering, RAG Knowledge Engine, Tech Placement, IT Careers">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M8 6l-6 6 6 6 1.41-1.41L4.83 12l4.58-4.59L8 6zm8 0l-1.41 1.41L19.17 12l-4.58 4.59L16 18l6-6-6-6z'/></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><circle cx='12' cy='12' r='3'/><path d='M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4'/></svg>">
 </head>
 
 <body>
 
   <!-- =========================================================================
-       Navigation Header
+       Navigation Header (Mobile Friendly with Drawer & Large Tap Targets)
        ========================================================================= -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-container">
-      <a href="index.html" class="logo" id="headerLogo" aria-label="Bytecode Trainings Home">
+      <a href="index.html" class="logo" id="headerLogo" aria-label="Bytecode AI LMS">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
           </svg>
         </div>
-        <span class="logo-text">Bytecode<span>Trainings</span></span>
+        <div class="logo-brand">
+          <span class="logo-text">Bytecode<span class="logo-accent">.AI</span></span>
+          <span class="logo-subtag">IT JOB LMS</span>
+        </div>
       </a>
 
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home" class="nav-link active" id="navHome">Home</a></li>
-          <li><a href="#courses" class="nav-link" id="navCourses">Courses</a></li>
-          <li><a href="#whyUs" class="nav-link" id="navWhyUs">Why Us</a></li>
-          <li><a href="#reviews" class="nav-link" id="navReviews">Testimonials</a></li>
-          <li><a href="#faq" class="nav-link" id="navFaq">FAQ</a></li>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Overview</a></li>
+          <li><a href="#playground" class="nav-link">AI Interview Engines</a></li>
+          <li><a href="#job-openings" class="nav-link">Active IT Jobs</a></li>
+          <li><a href="#tracks" class="nav-link">Placement Tracks</a></li>
+          <li><a href="#comparison" class="nav-link">Why Bytecode</a></li>
         </ul>
       </nav>
 
+      <!-- Action CTAs & Mobile Hamburger -->
       <div class="nav-actions">
-        <a href="login.html" class="btn btn-outline btn-sm" id="navLoginBtn">Sign In</a>
-        <a href="#courses" class="btn btn-primary btn-sm" id="navEnrollBtn">Enroll Now</a>
-        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">☰</button>
+        <a href="login.html" class="btn btn-outline btn-sm nav-login-btn">Candidate Sign In</a>
+        <a href="#playground" class="btn btn-primary btn-sm nav-cta-btn">Practice Mock Interview ➔</a>
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Drawer">☰</button>
       </div>
     </div>
+
+    <!-- Mobile Slide-Out Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="logo">
+          <span class="logo-text">Bytecode<span class="logo-accent">.AI</span> LMS</span>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose">✕</button>
+      </div>
+      <div class="mobile-drawer-body">
+        <p class="mobile-drawer-motto">AI-Powered LMS for Active IT Job Seekers</p>
+        <ul class="mobile-drawer-links">
+          <li><a href="#home" class="drawer-link"><span>🏠</span> Home & Readiness Diagnostic</a></li>
+          <li><a href="#playground" class="drawer-link"><span>🎙️</span> AI Mock Technical Interview</a></li>
+          <li><a href="#playground" class="drawer-link"><span>📄</span> ATS Resume Optimizer</a></li>
+          <li><a href="#job-openings" class="drawer-link"><span>💼</span> Active IT Job Openings (Live Feed)</a></li>
+          <li><a href="#tracks" class="drawer-link"><span>🚀</span> Job Placement Tracks</a></li>
+          <li><a href="#comparison" class="drawer-link"><span>⚡</span> Traditional Institute vs AI LMS</a></li>
+        </ul>
+        <div class="mobile-drawer-actions">
+          <a href="#playground" class="btn btn-primary btn-full btn-lg drawer-link">Start Free AI Mock Drill ➔</a>
+          <a href="login.html" class="btn btn-outline btn-full">Candidate Sign In</a>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop" style="display: none;"></div>
   </header>
 
   <!-- =========================================================================
-       Hero Section
+       Hero Section: Mobile-First Focused on Active IT Job Seekers
        ========================================================================= -->
   <section class="hero-section" id="home">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="badge-pill">
           <span class="pulse-dot"></span>
-          <span>New Batches Starting Soon | 100% Placement Assistance</span>
+          <span>AI-Powered LMS for Active IT Job Seekers</span>
         </div>
+
         <h1 class="hero-title">
-          Master Tech Skills. <br>
-          <span class="gradient-text">Build Your Dream Tech Career.</span>
+          Land Your Next IT Job. <br>
+          <span class="gradient-text">Powered by Autonomous AI LMS.</span>
         </h1>
+
         <p class="hero-description">
-          Fast-track your transition into high-paying software roles. Learn Full Stack, AI & Data Science, Cloud, and
-          DevOps through real-world capstone projects and 1:1 mentorship from top engineering leads.
+          Stop memorizing static lectures. Bytecode AI is the first autonomous LMS engineered specifically for active IT job seekers. Practice real-time <strong>AI Mock Interviews</strong>, optimize resumes with <strong>ATS Keyword Scanners</strong>, master <strong>RAG Engines</strong>, and get hired by 850+ tech partners.
         </p>
 
+        <!-- Mobile-Friendly CTAs -->
         <div class="hero-ctas">
-          <a href="#courses" class="btn btn-primary btn-lg" id="heroExploreBtn">
-            Explore Courses
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
+          <a href="#playground" class="btn btn-primary btn-lg">
+            <span>🎙️</span> Practice AI Mock Interview
           </a>
-          <a href="login.html" class="btn btn-outline btn-lg" id="heroStudentPortalBtn">
-            Student Portal
+          <a href="#playground" class="btn btn-outline btn-lg" onclick="switchEngine('ats')">
+            <span>📄</span> Scan ATS Resume Score
           </a>
         </div>
 
+        <!-- Job Seeker Proof Metrics -->
         <div class="hero-stats-row">
           <div class="stat-item">
-            <h3 class="stat-number" data-target="12500" data-suffix="+">12,500+</h3>
-            <p>Students Trained</p>
+            <h3>94.8%</h3>
+            <p>IT Offer Placement Rate</p>
           </div>
           <div class="stat-item">
-            <h3 class="stat-number" data-target="96" data-suffix="%">96%</h3>
-            <p>Placement Rate</p>
+            <h3>₹24.5 LPA</h3>
+            <p>Avg Tech Starting Package</p>
           </div>
           <div class="stat-item">
-            <h3 class="stat-number" data-target="180" data-suffix="+">180+</h3>
-            <p>Hiring Partners</p>
+            <h3>850+</h3>
+            <p>Active IT Hiring Partners</p>
+          </div>
+          <div class="stat-item">
+            <h3>3.2x</h3>
+            <p>Faster Offer Letter</p>
           </div>
         </div>
       </div>
 
-      <!-- Hero Interactive Code Visual -->
+      <!-- Live Job Readiness Diagnostic Card (Mobile-First Hero Visual) -->
       <div class="hero-visual">
-        <div class="glass-terminal">
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot-red"></span>
-              <span class="dot-yellow"></span>
-              <span class="dot-green"></span>
+        <div class="readiness-card">
+          <div class="readiness-header">
+            <div class="readiness-title-row">
+              <span class="pulse-dot"></span>
+              <h4>Live IT Job Readiness Diagnostic</h4>
             </div>
-            <div class="terminal-title">BytecodeCareerRoadmap.ts</div>
-            <span style="font-size: 0.75rem; color: #10b981;">● Online</span>
+            <span class="role-tag-live">Active Job Seeker</span>
           </div>
-          <div class="terminal-body">
-            <div class="code-line">
-              <span class="token-comment">// Fast-track your engineering journey</span>
-            </div>
-            <div class="code-line">
-              <span class="token-keyword">import</span> { <span class="token-var">Mentorship</span>, <span
-                class="token-var">Projects</span> } <span class="token-keyword">from</span> <span
-                class="token-string">'@bytecode/career'</span>;
-            </div>
-            <div class="code-line">
-              <span class="token-keyword">const</span> <span class="token-var">candidate</span> = <span
-                class="token-keyword">new</span> <span class="token-var">Student</span>({
-            </div>
-            <div class="code-line" style="padding-left: 1.5rem;">
-              track: <span class="token-string">'Full Stack & AI'</span>,
-            </div>
-            <div class="code-line" style="padding-left: 1.5rem;">
-              handsOnProjects: <span class="token-keyword">12</span>,
-            </div>
-            <div class="code-line" style="padding-left: 1.5rem;">
-              mockInterviews: <span class="token-keyword">true</span>,
-            </div>
-            <div class="code-line">
-              });
-            </div>
-            <div class="code-line">
-              <span class="token-keyword">await</span> <span class="token-var">candidate</span>.<span
-                class="token-var">launchHighPayingCareer</span>();
-            </div>
-            <div class="code-line" style="margin-top: 1rem; color: #34d399;">
-              <span>➜ Status: Placed at Tier-1 Tech Company 🚀</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Floating Badges -->
-        <div class="floating-pill pill-1">
-          <span class="pill-icon">★</span>
-          <span class="pill-text">Avg. 8.5 LPA Package</span>
-        </div>
-        <div class="floating-pill pill-2">
-          <span class="pill-icon">💻</span>
-          <span class="pill-text">100% Live Practice Labs</span>
+          <div class="diagnostic-selectors">
+            <div class="diagnostic-group">
+              <label>Target IT Role:</label>
+              <select id="heroRoleSelect" class="diagnostic-select">
+                <option value="Full-Stack AI Developer">Full-Stack AI Developer (MERN + GenAI)</option>
+                <option value="Enterprise RAG Architect">Enterprise RAG Architect</option>
+                <option value="Autonomous Agent Engineer">Autonomous AI Agent Engineer</option>
+                <option value="Cloud Microservices Engineer">Cloud & DevOps Engineer</option>
+              </select>
+            </div>
+
+            <div class="diagnostic-group">
+              <label>Current Experience:</label>
+              <select class="diagnostic-select">
+                <option value="0-1 years">Fresher / Career Switcher (0-1 yrs)</option>
+                <option value="1-3 years" selected>Junior / Mid Developer (1-3 yrs)</option>
+                <option value="3-6 years">Experienced Engineer (3-6 yrs)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Readiness Meter Gauge -->
+          <div class="readiness-meter-wrapper">
+            <div class="meter-circle">
+              <span class="meter-val" id="readinessScoreVal">91%</span>
+              <span class="meter-label">PLACEMENT READY</span>
+            </div>
+            <div class="meter-details">
+              <div class="meter-row">
+                <span>System Design & Coding:</span>
+                <strong style="color: #34d399">94% (Strong)</strong>
+              </div>
+              <div class="meter-row">
+                <span>ATS Resume Keywords:</span>
+                <strong style="color: #38bdf8" id="atsStatusText">96% (Optimized)</strong>
+              </div>
+              <div class="meter-row">
+                <span>Mock Interview Confidence:</span>
+                <strong style="color: #38bdf8">92% (Top 5% Cohort)</strong>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-full" id="btnRecalculate">
+            ⚡ Re-Calculate Job Readiness Score
+          </button>
+
+          <div class="readiness-footer-tip">
+            <span>💡 Tip:</span> Scoring above 90% unlocks direct referrals to Google, Amazon, and top Indian IT startups.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================================
-       Hiring Partners Ribbon
-       ========================================================================= -->
+  <!-- Hiring Partners Ribbon -->
   <section class="hiring-ribbon">
     <div class="container">
-      <div class="ribbon-label">Our Alumni Work At Top Global Tech Companies</div>
+      <div class="ribbon-label">WHERE BYTECODE AI JOB SEEKERS GET PLACED</div>
       <div class="company-logos">
         <div class="company-chip">⚡ Google</div>
-        <div class="company-chip">🔷 Microsoft</div>
-        <div class="company-chip">📦 Amazon</div>
-        <div class="company-chip">🚀 Meta</div>
-        <div class="company-chip">💼 TCS</div>
-        <div class="company-chip">🌐 Infosys</div>
-        <div class="company-chip">🎯 Cognizant</div>
+        <div class="company-chip">☁️ Amazon AWS</div>
+        <div class="company-chip">💳 Razorpay</div>
+        <div class="company-chip">🍔 Swiggy</div>
+        <div class="company-chip">💻 Microsoft</div>
+        <div class="company-chip">🏢 TCS Digital</div>
+        <div class="company-chip">🌐 Infosys Springboard</div>
+        <div class="company-chip">🦄 AI Unicorn Startups</div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Featured Courses Section
+       Interactive AI Playground (The 4 Core Pillars for Active Job Seekers)
        ========================================================================= -->
-  <section class="section" id="courses">
+  <section class="ai-playground-section" id="playground">
     <div class="container">
       <div class="section-head">
-        <span class="badge-pill">Curated Curriculum</span>
-        <h2>Explore Career-Focused <span class="gradient-text">Programs</span></h2>
-        <p>Curated by industry veterans with up-to-date technologies and enterprise project exposure.</p>
+        <span class="badge-pill">Interactive Candidate Playground</span>
+        <h2>Autonomous <span class="gradient-text">IT Job Preparation Engines</span></h2>
+        <p>Engineered for active job seekers. Test the four foundational AI pillars that replace outdated training institutes.</p>
       </div>
 
-      <!-- Filter Tabs -->
-      <div class="filter-tabs">
-        <button class="tab-btn active" data-filter="all" id="tabAll">All Programs</button>
-        <button class="tab-btn" data-filter="web" id="tabWeb">Full Stack Web</button>
-        <button class="tab-btn" data-filter="ai" id="tabAi">AI & Data Science</button>
-        <button class="tab-btn" data-filter="cloud" id="tabCloud">Cloud & DevOps</button>
+      <!-- Mobile-Friendly Horizontal Scrollable Tabs -->
+      <div class="ai-engine-tabs-scroll-container">
+        <div class="ai-engine-tabs">
+          <button class="ai-engine-btn active" id="tabBtnInterview" onclick="switchEngine('interview')">
+            <span>🎙️</span> AI Mock Interview Simulator
+          </button>
+          <button class="ai-engine-btn" id="tabBtnAts" onclick="switchEngine('ats')">
+            <span>📄</span> ATS Resume & Keyword Scorer
+          </button>
+          <button class="ai-engine-btn" id="tabBtnRag" onclick="switchEngine('rag')">
+            <span>📚</span> RAG Interview Knowledge Retrieval
+          </button>
+          <button class="ai-engine-btn" id="tabBtnAgents" onclick="switchEngine('agents')">
+            <span>🤖</span> 24/7 AI Career Mentor Agent
+          </button>
+          <button class="ai-engine-btn" id="tabBtnPrompts" onclick="switchEngine('prompts')">
+            <span>⚡</span> Prompt Engineering Studio
+          </button>
+        </div>
       </div>
 
-      <!-- Courses Grid -->
-      <div class="courses-grid" id="coursesGrid">
-
-        <!-- Course 1 -->
-        <div class="course-card" data-category="web">
-          <div class="course-top">
-            <span class="course-tag">Full Stack</span>
-            <div class="course-rating">★ 4.9 (1.8k reviews)</div>
-          </div>
-          <h3>Full Stack Web Development (MERN / Python)</h3>
-          <p>Master React, Node.js, Express, MongoDB, Next.js, and TypeScript with 5 enterprise-grade portfolio
-            projects.</p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 16 Weeks (Live + Lab)
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              1:1 Code Reviews & GitHub Portfolio
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Guaranteed Placement Drive Access
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹24,999</span>
+      <!-- Pillar 1: AI Mock Interview Simulator -->
+      <div class="ai-playground-card engine-panel" id="panelInterview">
+        <div class="interview-simulator-grid">
+          <div class="simulator-left">
+            <div class="simulator-status-bar">
+              <div class="interviewer-meta">
+                <span class="avatar-chip">AI</span>
+                <div>
+                  <h5 style="margin: 0; font-size: 0.95rem;">Senior Staff Interviewer (AI Agent)</h5>
+                  <span style="font-size: 0.78rem; color: #10b981;">● Live Diagnostic Session</span>
+                </div>
+              </div>
+              <span class="badge-pill" style="margin: 0; padding: 0.2rem 0.6rem;">Target: Full-Stack AI Engineer</span>
             </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Full Stack Web Development">Enroll
-              Now</button>
+
+            <div class="interview-question-box">
+              <span class="question-badge">INTERVIEW QUESTION</span>
+              <p class="question-text" id="mockQuestionText">
+                "How do you structure a production RAG application to handle documents exceeding the context window while keeping query latency under 200ms?"
+              </p>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <label class="form-label" style="margin: 0;">Your Technical Explanation</label>
+                <button type="button" class="btn-record" id="btnVoiceRecord" onclick="toggleRecord()">
+                  <span id="recordText">🎙️ Record Voice Answer</span>
+                </button>
+              </div>
+              <textarea class="prompt-textarea" id="candidateAnswerInput" style="height: 120px;">We implement hierarchical semantic chunking with parent-child document stores in Pinecone. The initial vector search retrieves lightweight parent IDs via reciprocal rank fusion (RRF), followed by Cohere re-ranking on the top 5 chunks before feeding into GPT-4o.</textarea>
+            </div>
+
+            <div class="simulator-actions">
+              <button class="btn btn-primary btn-full" onclick="evaluateAnswer()">
+                ⚡ Submit Answer for Instant AI Rubric Feedback
+              </button>
+              <button class="btn btn-outline" onclick="nextQuestion()">
+                Next Question ➔
+              </button>
+            </div>
+          </div>
+
+          <div class="simulator-right">
+            <div class="rubric-header">
+              <h4>Candidate Evaluation Rubric</h4>
+              <span class="rubric-score-badge" id="rubricScore">95/100</span>
+            </div>
+
+            <div class="rubric-metrics">
+              <div class="rubric-metric-item">
+                <div class="metric-row">
+                  <span>Technical Accuracy:</span>
+                  <strong id="techAccVal">96%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="techAccBar" style="width: 96%;"></div>
+                </div>
+              </div>
+
+              <div class="rubric-metric-item">
+                <div class="metric-row">
+                  <span>System Scalability:</span>
+                  <strong id="sysScalVal">94%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="sysScalBar" style="width: 94%;"></div>
+                </div>
+              </div>
+
+              <div class="rubric-metric-item">
+                <div class="metric-row">
+                  <span>STAR Format Communication:</span>
+                  <strong id="commVal">95%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="commBar" style="width: 95%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rubric-feedback-box">
+              <span class="feedback-title">✓ SENIOR AI INTERVIEWER FEEDBACK</span>
+              <p id="rubricFeedback">
+                Outstanding explanation! Explicitly mentioning Reciprocal Rank Fusion (RRF) and parent-child document mapping demonstrates real enterprise experience.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Course 2 -->
-        <div class="course-card" data-category="ai">
-          <div class="course-top">
-            <span class="course-tag" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">Trending</span>
-            <div class="course-rating">★ 4.95 (2.3k reviews)</div>
-          </div>
-          <h3>Generative AI & Data Science Masterclass</h3>
-          <p>From Python, Pandas & Scikit-Learn to Deep Learning, LLMs, LangChain, Vector DBs, and Agentic AI workflows.
-          </p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 18 Weeks (Live Interactive)
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Build & Deploy Production LLM Apps
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Kaggle & Open Source Contributions
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹29,999</span>
+      <!-- Pillar 2: ATS Resume Reviewer & Keyword Optimizer -->
+      <div class="ai-playground-card engine-panel" id="panelAts" style="display: none;">
+        <div class="ats-grid">
+          <div class="ats-score-panel">
+            <div class="score-circle">
+              <h3 id="atsScoreVal">79</h3>
+              <span>ATS SCORE</span>
             </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Generative AI & Data Science">Enroll
-              Now</button>
+            <h4>Target: Full-Stack AI Engineer</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Evaluated across 150+ Top IT Hiring Partner screening filters (Google, Amazon, Swiggy, TCS).
+            </p>
+            <button class="btn btn-primary btn-full" onclick="optimizeResume()">
+              ⚡ 1-Click AI Resume Keyword Injector
+            </button>
+            <div style="margin-top: 1.25rem; text-align: left;">
+              <span style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">
+                ATS Screening Keywords
+              </span>
+              <div class="keywords-chip-list" id="keywordsList">
+                <div class="kw-chip matched"><span>✓</span> React 19 & TypeScript</div>
+                <div class="kw-chip matched"><span>✓</span> Node.js & Express REST APIs</div>
+                <div class="kw-chip matched"><span>✓</span> MongoDB & Mongoose</div>
+                <div class="kw-chip missing" id="kwPinecone"><span>+</span> Pinecone Vector DB</div>
+                <div class="kw-chip missing" id="kwRAG"><span>+</span> RAG Hybrid Retrieval (BM25)</div>
+                <div class="kw-chip missing" id="kwAgents"><span>+</span> LangGraph Cyclic Agents</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ats-preview-panel">
+            <div class="rag-header">
+              <h4><span>📄</span> AI Resume Bullet-Point Synthesizer</h4>
+              <span class="badge-pill" style="margin: 0; padding: 0.2rem 0.6rem;">STAR Method Formatter</span>
+            </div>
+
+            <div class="ats-bullet-box">
+              <span class="bullet-label">OPTIMIZED RESUME PROJECT BULLET</span>
+              <p class="bullet-content" id="atsBulletText">
+                • Developed responsive full-stack applications using React, Node.js, and MongoDB with secure JWT authentication.
+              </p>
+            </div>
+
+            <div class="ats-enhancements-list">
+              <h5>AI Resume Enhancement Engine Actions:</h5>
+              <div class="enhancement-item">
+                <span>🚀</span>
+                <p><strong>Quantifiable Impact:</strong> Added 42% query latency reduction benchmark to stand out to hiring managers.</p>
+              </div>
+              <div class="enhancement-item">
+                <span>🎯</span>
+                <p><strong>Keyword Synergy:</strong> Added "Pinecone Vector DB" and "LangGraph Cyclic Agents" for 99.4% ATS match rate.</p>
+              </div>
+              <div class="enhancement-item">
+                <span>🛡️</span>
+                <p><strong>Format Validation:</strong> Verified against Taleo, Greenhouse, and Workday ATS parsers.</p>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Course 3 -->
-        <div class="course-card" data-category="cloud">
-          <div class="course-top">
-            <span class="course-tag" style="background: rgba(6, 182, 212, 0.15); color: #38bdf8;">High Demand</span>
-            <div class="course-rating">★ 4.88 (1.2k reviews)</div>
-          </div>
-          <h3>Cloud Engineering & DevOps with AWS & K8s</h3>
-          <p>Master Linux, Docker, Kubernetes, Terraform, CI/CD pipelines, AWS Architecture, and Production Monitoring.
-          </p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 14 Weeks (Hands-on Labs)
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Real AWS Cloud Sandbox Access
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              AWS Certified Solutions Architect Prep
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹27,999</span>
+      <!-- Pillar 3: RAG Knowledge Engine -->
+      <div class="ai-playground-card engine-panel" id="panelRag" style="display: none;">
+        <div class="rag-grid">
+          <div class="rag-panel">
+            <div class="rag-header">
+              <h4><span>📁</span> Indexed IT Interview Question Base</h4>
+              <span class="badge-pill" style="margin: 0; padding: 0.2rem 0.6rem;">10k+ Questions</span>
             </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Cloud Engineering & DevOps">Enroll
-              Now</button>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Search verified technical interview solutions vectorized with OpenAI text-embedding-3-small:
+            </p>
+            <div class="doc-chip" style="border-color: var(--primary);">
+              <span>📄 Google-System-Design-Playbook.pdf</span>
+              <span class="doc-chip-badge">Active Source</span>
+            </div>
+            <div class="doc-chip">
+              <span>📄 Amazon-Leadership-Technical-Rubrics.pdf</span>
+              <span class="doc-chip-badge">Indexed</span>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <input type="text" class="form-control" id="ragInputQuery" value="How to design a distributed cache with high availability and 99.99% uptime?" style="margin-bottom: 0.75rem;">
+              <button class="btn btn-primary btn-full" onclick="runRagQuery()">
+                Run RAG Semantic Retrieval 🔍
+              </button>
+            </div>
+          </div>
+
+          <div class="rag-panel">
+            <div class="rag-header">
+              <h4><span>⚡</span> Grounded Interview Solution</h4>
+              <span class="doc-chip-badge" id="ragScoreBadge">97.4% Cosine Match</span>
+            </div>
+            <div class="chunk-card">
+              <div class="chunk-meta">
+                <span>VERIFIED VECTOR CHUNK</span>
+                <span>Google-System-Design-Playbook.pdf</span>
+              </div>
+              <div class="chunk-text">
+                "Consistent hashing with virtual nodes distributes load evenly across Redis clusters. Cache replication with asynchronous replication and client-side connection pooling prevents hot-spot degradation."
+              </div>
+            </div>
+            <div class="rag-result-box">
+              <div style="font-size: 0.8rem; color: #10b981; font-weight: 700; margin-bottom: 0.4rem; text-transform: uppercase;">
+                ✓ Grounded IT Technical Answer
+              </div>
+              <p style="font-size: 0.92rem; color: #f1f5f9; line-height: 1.6;">
+                For distributed caching at scale, the candidate should highlight three core architectural pillars: (1) Consistent Hashing with virtual ring replication, (2) Cache-Aside with TTL jitter to eliminate cache stampedes, and (3) Multi-AZ Redis Sentinel clustering for automated high availability and 99.99% uptime.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Course 4 -->
-        <div class="course-card" data-category="web">
-          <div class="course-top">
-            <span class="course-tag">Java Track</span>
-            <div class="course-rating">★ 4.85 (950 reviews)</div>
-          </div>
-          <h3>Enterprise Java Full Stack (Spring Boot & Microservices)</h3>
-          <p>Core Java, Spring Boot 3, Microservices Architecture, Hibernate, Docker, and Angular/React UI integration.
-          </p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 16 Weeks
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Enterprise Microservices Project
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              System Design & DSA Module
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹22,999</span>
+      <!-- Pillar 4: AI Career Mentor Chatbot -->
+      <div class="ai-playground-card engine-panel" id="panelAgents" style="display: none;">
+        <div class="chat-window">
+          <div class="chat-header">
+            <div class="agent-badge">
+              <div class="agent-avatar">AI</div>
+              <div>
+                <h5 style="margin: 0; font-size: 0.95rem;">Bytecode Autonomous Career Mentor</h5>
+                <span style="font-size: 0.75rem; color: #10b981;">● Real-Time Placement Knowledge Agent</span>
+              </div>
             </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Enterprise Java Full Stack">Enroll
-              Now</button>
+            <span class="badge-pill" style="margin: 0;">GPT-4o + Vector Engine</span>
+          </div>
+          <div class="chat-messages" id="chatMessagesBox">
+            <div class="chat-bubble agent">
+              <div class="agent-thought">🧠 Agent initialized. Knowledge base: 10,000+ Real IT Technical Interview Transcripts.</div>
+              <div>Hello! I am your 24/7 Bytecode AI Career Mentor. I can review your resume, conduct a 1:1 technical interview drill, or explain complex system design algorithms. What IT role are you targeting?</div>
+            </div>
+          </div>
+          <div class="chat-input-bar">
+            <input type="text" class="chat-input" id="chatInputText" placeholder="Ask your AI Mentor about interview questions, tech stacks, or salaries...">
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send ➔</button>
           </div>
         </div>
+      </div>
 
-        <!-- Course 5 -->
-        <div class="course-card" data-category="ai">
-          <div class="course-top">
-            <span class="course-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Fast Track</span>
-            <div class="course-rating">★ 4.91 (1.4k reviews)</div>
-          </div>
-          <h3>Python & Data Analytics with PowerBI</h3>
-          <p>Learn Data Cleaning, Exploratory Analysis, SQL, Advanced Excel, Power BI Dashboards, and Predictive
-            Modeling.</p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 12 Weeks
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Real Business Case Studies
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Interactive Dashboard Portfolio
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹18,999</span>
+      <!-- Pillar 5: Prompt Studio -->
+      <div class="ai-playground-card engine-panel" id="panelPrompts" style="display: none;">
+        <div class="prompt-grid">
+          <div>
+            <div class="form-group">
+              <label class="form-label">Task Preset</label>
+              <select class="form-control">
+                <option>Interview Code Evaluation (Technical Rubric)</option>
+                <option>System Design Architecture Generator</option>
+                <option>STAR Behavioral Answer Refiner</option>
+              </select>
             </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger" data-course="Python & Data Analytics">Enroll
-              Now</button>
+            <div class="form-group">
+              <label class="form-label">Engineer Prompt</label>
+              <textarea class="prompt-textarea" style="height: 120px;">Generate a hard-level coding interview challenge on sliding window algorithms in JavaScript with time/space complexity analysis.</textarea>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="alert('Prompt successfully optimized with 98.6% evaluation score!')">
+              ✨ Execute & Evaluate Technical Prompt
+            </button>
+          </div>
+          <div>
+            <label class="form-label">Engine Output & Rubric</label>
+            <div class="prompt-output-box">
+✨ Auto-Synthesized (GPT-4o | Eval: 98.6% Accuracy):
+
+Challenge: Distributed Sliding-Window Rate Limiter
+• Input: 50,000 req/sec across 10 regions
+• Key Architecture: Redis Sorted Set (ZSET) inside atomic Lua script
+• Evaluation Points: Atomicity (40%), Race condition prevention (30%), Zero-downtime rolling deploys (30%).
+            </div>
           </div>
         </div>
-
-        <!-- Course 6 -->
-        <div class="course-card" data-category="cloud">
-          <div class="course-top">
-            <span class="course-tag">Security</span>
-            <div class="course-rating">★ 4.87 (820 reviews)</div>
-          </div>
-          <h3>Cyber Security & Ethical Hacking</h3>
-          <p>Network security, penetration testing, Kali Linux, Web Application Security (OWASP Top 10), and SOC Analyst
-            essentials.</p>
-          <ul class="course-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Duration: 14 Weeks
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Live CTF Challenges & Virtual Labs
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              CEH & CompTIA Security+ Aligned
-            </li>
-          </ul>
-          <div class="course-footer">
-            <div class="course-fee">
-              <span class="fee-label">Course Fee</span>
-              <span class="fee-val">₹26,999</span>
-            </div>
-            <button class="btn btn-primary btn-sm btn-enroll-trigger"
-              data-course="Cyber Security & Ethical Hacking">Enroll Now</button>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Why Choose Us Section
+       Live IT Job Openings Feed (Direct Referrals)
        ========================================================================= -->
-  <section class="section" id="whyUs" style="background: rgba(15, 23, 42, 0.4);">
+  <section class="section" id="job-openings" style="background: rgba(10, 15, 29, 0.6);">
     <div class="container">
       <div class="section-head">
-        <span class="badge-pill">The Bytecode Advantage</span>
-        <h2>Why Engineers Choose <span class="gradient-text">Bytecode Trainings</span></h2>
-        <p>We bridge the gap between academic theory and high-growth industry standards.</p>
+        <span class="badge-pill">Live Hiring Pipeline</span>
+        <h2>Active IT Job Openings <span class="gradient-text">(Direct Referrals)</span></h2>
+        <p>Exclusive openings from our 850+ IT hiring partners. Click "Practice for this Role" to load targeted mock interviews.</p>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
+      <div class="job-openings-grid">
+        <!-- Job 1 -->
+        <div class="job-card">
+          <div class="job-card-top">
+            <div class="job-company-badge">
+              <span class="job-logo">🍔</span>
+              <div>
+                <h4>Swiggy</h4>
+                <span class="job-loc">Bangalore (Hybrid)</span>
+              </div>
+            </div>
+            <span class="job-badge-pill">Urgent Hiring</span>
           </div>
-          <h4>1:1 Elite Mentorship</h4>
-          <p>Learn directly from Senior Architects & Tech Leads working at Google, Microsoft, and top product MNCs.</p>
+          <h3 class="job-role-title">Senior Full-Stack AI Engineer</h3>
+          <div class="job-details-row">
+            <div class="job-stat">
+              <span class="job-stat-label">Experience</span>
+              <span class="job-stat-val">2 - 5 Years</span>
+            </div>
+            <div class="job-stat">
+              <span class="job-stat-label">Package (CTC)</span>
+              <span class="job-stat-val text-emerald">₹28 - ₹38 LPA</span>
+            </div>
+          </div>
+          <div class="job-skills-list">
+            <span class="job-skill-chip">React 19</span>
+            <span class="job-skill-chip">Node.js</span>
+            <span class="job-skill-chip">Pinecone</span>
+            <span class="job-skill-chip">LangChain</span>
+          </div>
+          <div class="job-card-footer">
+            <a href="#playground" class="btn btn-primary btn-full btn-sm" onclick="switchEngine('interview')">
+              🎯 Practice AI Mock Interview for This Role
+            </a>
+          </div>
         </div>
 
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
+        <!-- Job 2 -->
+        <div class="job-card">
+          <div class="job-card-top">
+            <div class="job-company-badge">
+              <span class="job-logo">☁️</span>
+              <div>
+                <h4>Amazon Web Services</h4>
+                <span class="job-loc">Hyderabad / Remote</span>
+              </div>
+            </div>
+            <span class="job-badge-pill">Top Tier</span>
           </div>
-          <h4>Production-Grade Projects</h4>
-          <p>No toy apps or basic to-do lists. Build real-time scalable web systems, AI pipelines, and cloud
-            infrastructures.</p>
+          <h3 class="job-role-title">Generative AI Solutions Architect</h3>
+          <div class="job-details-row">
+            <div class="job-stat">
+              <span class="job-stat-label">Experience</span>
+              <span class="job-stat-val">3 - 7 Years</span>
+            </div>
+            <div class="job-stat">
+              <span class="job-stat-label">Package (CTC)</span>
+              <span class="job-stat-val text-emerald">₹34 - ₹48 LPA</span>
+            </div>
+          </div>
+          <div class="job-skills-list">
+            <span class="job-skill-chip">AWS Bedrock</span>
+            <span class="job-skill-chip">Python</span>
+            <span class="job-skill-chip">RAG Pipelines</span>
+            <span class="job-skill-chip">Vector DBs</span>
+          </div>
+          <div class="job-card-footer">
+            <a href="#playground" class="btn btn-primary btn-full btn-sm" onclick="switchEngine('interview')">
+              🎯 Practice AI Mock Interview for This Role
+            </a>
+          </div>
         </div>
 
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"></circle>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-            </svg>
+        <!-- Job 3 -->
+        <div class="job-card">
+          <div class="job-card-top">
+            <div class="job-company-badge">
+              <span class="job-logo">💳</span>
+              <div>
+                <h4>Razorpay</h4>
+                <span class="job-loc">Bangalore (On-site)</span>
+              </div>
+            </div>
+            <span class="job-badge-pill">Actively Interviewing</span>
           </div>
-          <h4>100% Placement Drives</h4>
-          <p>Dedicated corporate placement cell with resume building, mock interviews, and direct referrals to 180+
-            hiring partners.</p>
+          <h3 class="job-role-title">Backend Microservices Engineer</h3>
+          <div class="job-details-row">
+            <div class="job-stat">
+              <span class="job-stat-label">Experience</span>
+              <span class="job-stat-val">1 - 4 Years</span>
+            </div>
+            <div class="job-stat">
+              <span class="job-stat-label">Package (CTC)</span>
+              <span class="job-stat-val text-emerald">₹20 - ₹32 LPA</span>
+            </div>
+          </div>
+          <div class="job-skills-list">
+            <span class="job-skill-chip">Node.js</span>
+            <span class="job-skill-chip">MongoDB</span>
+            <span class="job-skill-chip">Redis</span>
+            <span class="job-skill-chip">Docker</span>
+          </div>
+          <div class="job-card-footer">
+            <a href="#playground" class="btn btn-primary btn-full btn-sm" onclick="switchEngine('interview')">
+              🎯 Practice AI Mock Interview for This Role
+            </a>
+          </div>
         </div>
 
-        <div class="feature-box">
-          <div class="feature-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
+        <!-- Job 4 -->
+        <div class="job-card">
+          <div class="job-card-top">
+            <div class="job-company-badge">
+              <span class="job-logo">💻</span>
+              <div>
+                <h4>Microsoft</h4>
+                <span class="job-loc">Hyderabad / Bengaluru</span>
+              </div>
+            </div>
+            <span class="job-badge-pill">Fortune 50</span>
           </div>
-          <h4>Lifetime LMS & Lab Access</h4>
-          <p>Never miss a session. Get lifetime access to class recordings, source code repositories, practice tests,
-            and community forum.</p>
+          <h3 class="job-role-title">Cloud & AI Platform Engineer</h3>
+          <div class="job-details-row">
+            <div class="job-stat">
+              <span class="job-stat-label">Experience</span>
+              <span class="job-stat-val">2 - 6 Years</span>
+            </div>
+            <div class="job-stat">
+              <span class="job-stat-label">Package (CTC)</span>
+              <span class="job-stat-val text-emerald">₹30 - ₹45 LPA</span>
+            </div>
+          </div>
+          <div class="job-skills-list">
+            <span class="job-skill-chip">Azure OpenAI</span>
+            <span class="job-skill-chip">Kubernetes</span>
+            <span class="job-skill-chip">LangGraph</span>
+            <span class="job-skill-chip">CI/CD</span>
+          </div>
+          <div class="job-card-footer">
+            <a href="#playground" class="btn btn-primary btn-full btn-sm" onclick="switchEngine('interview')">
+              🎯 Practice AI Mock Interview for This Role
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Testimonials Section
+       Curated IT Job-Ready Placement Tracks
        ========================================================================= -->
-  <section class="section" id="reviews">
+  <section class="section" id="tracks">
     <div class="container">
       <div class="section-head">
-        <span class="badge-pill">Alumni Success</span>
-        <h2>Hear From Our <span class="gradient-text">Graduates</span></h2>
-        <p>From non-IT to software architects—read how Bytecode transformed their careers.</p>
+        <span class="badge-pill">Job Placement Tracks</span>
+        <h2>Accelerate Your Career with <span class="gradient-text">Job-Ready Tracks</span></h2>
+        <p>Curated curriculums designed directly with tech hiring managers. Go from preparation to offer letter.</p>
       </div>
 
-      <div class="testimonials-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"I transitioned from a mechanical background to Full Stack Developer within 4 months!
-            The mentors helped me review every pull request and prepped me for real interviews."</p>
-          <div class="review-author">
-            <div class="author-avatar">RK</div>
-            <div class="author-meta">
-              <h5>Rahul Kumar</h5>
-              <p>Software Engineer @ Amazon (12 LPA)</p>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-top">
+            <span class="course-tag">Highest Demand</span>
+            <span class="course-model-tag">Pinecone • LangChain • Next.js</span>
+          </div>
+          <h3>Enterprise RAG & Full-Stack AI Engineer</h3>
+          <p>Master production Retrieval-Augmented Generation (RAG), vector databases, semantic search, and streaming full-stack AI user interfaces.</p>
+          <div class="track-salary-badge">
+            <span>Target Package: <strong>₹18 - 36 LPA</strong></span>
+            <span class="track-openings">480+ Openings</span>
+          </div>
+          <ul class="course-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> Multi-modal document chunking & hybrid dense search</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> Pinecone, Qdrant & ChromaDB vector database architecture</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> 12 Real-world portfolio projects with live Vercel deployments</li>
+          </ul>
+          <div class="course-footer">
+            <div class="course-fee">
+              <span class="fee-label">Placement Assurance</span>
+              <span class="fee-val">100% Mentorship</span>
             </div>
+            <a href="login.html" class="btn btn-primary btn-sm">Enroll in Track ➔</a>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"The GenAI and Data Science track is unmatched. The hands-on exposure to LangChain,
-            Vector databases, and LLM fine-tuning was exactly what tech companies were looking for."</p>
-          <div class="review-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">PS</div>
-            <div class="author-meta">
-              <h5>Pooja Sharma</h5>
-              <p>AI Engineer @ Cognizant (14.5 LPA)</p>
-            </div>
+        <div class="course-card">
+          <div class="course-top">
+            <span class="course-tag">Trending Role</span>
+            <span class="course-model-tag">LangGraph • CrewAI • AutoGen</span>
           </div>
-        </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Bytecode's DevOps course gave me hands-on confidence with Kubernetes and Terraform on
-            AWS sandbox. Secured 3 offers right after the mock interview series!"</p>
-          <div class="review-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);">SV</div>
-            <div class="author-meta">
-              <h5>Sai Vardhan</h5>
-              <p>DevOps Lead @ Tech Mahindra</p>
+          <h3>Autonomous AI Agents & Multi-Agent Systems</h3>
+          <p>Build autonomous agents that plan, reason, execute code, browse the web, and collaborate in multi-agent swarms with human-in-the-loop checkpoints.</p>
+          <div class="track-salary-badge">
+            <span>Target Package: <strong>₹22 - 42 LPA</strong></span>
+            <span class="track-openings">320+ Openings</span>
+          </div>
+          <ul class="course-features">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> ReAct design patterns & stateful graph orchestration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> LangGraph cyclical multi-agent workflows with persistence</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12" /></svg> Production agent evaluation rubrics and benchmark testing</li>
+          </ul>
+          <div class="course-footer">
+            <div class="course-fee">
+              <span class="fee-label">Placement Assurance</span>
+              <span class="fee-val">100% Mentorship</span>
             </div>
+            <a href="login.html" class="btn btn-primary btn-sm">Enroll in Track ➔</a>
           </div>
         </div>
       </div>
@@ -560,199 +739,254 @@
   </section>
 
   <!-- =========================================================================
-       FAQ Section
+       Comparison Table: Traditional Institute vs Bytecode AI LMS
        ========================================================================= -->
-  <section class="section" id="faq" style="background: rgba(15, 23, 42, 0.4);">
+  <section class="section" id="comparison" style="background: rgba(15, 23, 42, 0.4);">
     <div class="container">
       <div class="section-head">
-        <span class="badge-pill">Got Questions?</span>
-        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
-        <p>Everything you need to know about our batches, placement support, and eligibility.</p>
+        <span class="badge-pill">The Bytecode AI Advantage</span>
+        <h2>Traditional Institute vs <span class="gradient-text">Bytecode AI LMS</span></h2>
+        <p>See why traditional institutes leave candidates unplaced while Bytecode AI gets engineers hired.</p>
       </div>
 
-      <div class="faq-container">
-        <div class="faq-item active">
-          <button class="faq-question">
-            <span>Are there any prerequisites to join Bytecode Trainings?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>No prior coding experience is needed for our beginner-to-advanced tracks. We start from foundational
-              programming concepts and guide you step-by-step through advanced frameworks and system design.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How does the 100% placement support work?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>Our dedicated placement team conducts resume workshops, LinkedIn branding, 1-on-1 technical and HR mock
-              interviews, and schedules direct interview drives with our 180+ hiring partner companies until you get
-              placed.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>What if I miss a live class?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>All live sessions are recorded in HD and uploaded to your student portal within 2 hours. You retain
-              lifetime access to these recordings, project files, and mentor Q&A channels.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Are weekend and evening batches available?</span>
-            <span class="faq-chevron">▼</span>
-          </button>
-          <div class="faq-answer">
-            <p>Yes, we have both weekday (morning & evening) and dedicated weekend batches tailored for working
-              professionals and university students.</p>
-          </div>
-        </div>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Capability</th>
+              <th class="bytecode-col">Bytecode AI LMS (Job Seeker Platform)</th>
+              <th class="traditional-col">Old Training Institutes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mock Interview Practice</strong></td>
+              <td class="bytecode-col">✓ 24/7 Unlimited AI Mock Interviews with Instant Rubric Feedback</td>
+              <td class="traditional-col">✗ 1-2 generic faculty interviews at course end</td>
+            </tr>
+            <tr>
+              <td><strong>ATS Resume Scoring</strong></td>
+              <td class="bytecode-col">✓ Automated ATS Scanner calibrated to 150+ IT hiring rubrics</td>
+              <td class="traditional-col">✗ Outdated Word document template from 2018</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Doubts & Learning</strong></td>
+              <td class="bytecode-col">✓ Instant Grounded RAG Knowledge Engine & 24/7 AI Mentor</td>
+              <td class="traditional-col">✗ Wait 24-48 hours for TA assistance</td>
+            </tr>
+            <tr>
+              <td><strong>Curriculum Relevance</strong></td>
+              <td class="bytecode-col">✓ Enterprise RAG, LangGraph Multi-Agents, React 19 & System Design</td>
+              <td class="traditional-col">✗ Generic basics (HTML, CSS, simple CRUD apps)</td>
+            </tr>
+            <tr>
+              <td><strong>Job Placement Direct Connect</strong></td>
+              <td class="bytecode-col">✓ 850+ IT Hiring Partners with direct candidate shortlisting</td>
+              <td class="traditional-col">✗ Sending resumes to random public email IDs</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================================
-       CTA Banner
-       ========================================================================= -->
+  <!-- CTA Banner -->
   <section class="container" style="margin: 4rem auto;">
     <div class="cta-banner">
-      <h2>Ready to Elevate Your Tech Career?</h2>
-      <p>Join thousands of learners who upgraded their skills and landed high-growth engineering roles.</p>
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <button class="btn btn-primary btn-lg btn-enroll-trigger" data-course="General Consultation">
-          Book Free Counseling
-        </button>
+      <h2>Ready to Land Your Dream IT Job?</h2>
+      <p>Join 15,000+ engineers who prepared with Bytecode AI LMS and unlocked offers at top tech firms.</p>
+      <div class="cta-buttons-row">
+        <a href="#playground" class="btn btn-primary btn-lg">
+          Practice AI Mock Interview Now ➔
+        </a>
         <a href="login.html" class="btn btn-outline btn-lg">
-          Sign In to Portal
+          Create Free Candidate Account
         </a>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================================
-       Footer
-       ========================================================================= -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="logo" style="margin-bottom: 1.25rem;">
+          <div class="logo" style="margin-bottom: 1.25rem;">
             <div class="logo-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4"></path></svg>
             </div>
-            <span class="logo-text">Bytecode<span>Trainings</span></span>
-          </a>
+            <span class="logo-text">Bytecode<span class="logo-accent">.AI</span> LMS</span>
+          </div>
           <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
-            Empowering aspiring developers and engineers with industry-aligned skills, practical projects, and
-            personalized mentoring.
+            The Autonomous AI-Powered Learning Management System engineered to help active job seekers master modern technologies, crack technical interviews, and launch successful IT careers.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Popular Courses</h4>
+          <h4>IT Placement Engines</h4>
           <ul class="footer-links">
-            <li><a href="#courses">Full Stack MERN Dev</a></li>
-            <li><a href="#courses">Generative AI & LLMs</a></li>
-            <li><a href="#courses">AWS Cloud & DevOps</a></li>
-            <li><a href="#courses">Java Spring Boot</a></li>
-            <li><a href="#courses">Data Analytics & Power BI</a></li>
+            <li><a href="#playground" onclick="switchEngine('interview')">AI Mock Technical Interview</a></li>
+            <li><a href="#playground" onclick="switchEngine('ats')">ATS Resume Reviewer & Matcher</a></li>
+            <li><a href="#playground" onclick="switchEngine('rag')">RAG Interview Knowledge Retrieval</a></li>
+            <li><a href="#playground" onclick="switchEngine('agents')">24/7 Autonomous Career Mentor</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Quick Links</h4>
+          <h4>Candidate Support</h4>
           <ul class="footer-links">
-            <li><a href="#whyUs">Why Choose Us</a></li>
-            <li><a href="#reviews">Success Stories</a></li>
-            <li><a href="#faq">FAQs</a></li>
-            <li><a href="login.html">Student Login</a></li>
-            <li><a href="login.html">Register Account</a></li>
+            <li><span style="color: #cbd5e1">Direct Line: +91 98765 43210</span></li>
+            <li><span style="color: #cbd5e1">Admissions: careers@bytecode.ai</span></li>
+            <li><span style="color: #10b981">● Placements Active (2026 Batch)</span></li>
           </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Stay Updated</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">Get weekly tech insights, free webinar invites, and
-            course discounts.</p>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="Your work email..." class="newsletter-input" required>
-            <button type="submit" class="btn btn-primary btn-sm">Join</button>
-          </form>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Bytecode Trainings. All rights reserved.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: var(--text-dim); text-decoration: none;">Privacy Policy</a>
-          <a href="#" style="color: var(--text-dim); text-decoration: none;">Terms of Service</a>
-          <a href="#" style="color: var(--text-dim); text-decoration: none;">Security</a>
-        </div>
+        <p>© 2026 Bytecode.AI LMS. All rights reserved. Transforming IT Job Preparation with Autonomous AI.</p>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================================
-       Course Enrollment Modal
+       Sticky Bottom Quick Bar (Strictly on Mobile Screens < 768px)
        ========================================================================= -->
-  <div class="modal-overlay" id="enrollModal">
-    <div class="modal-card">
-      <button class="modal-close" id="closeModalBtn" aria-label="Close modal">✕</button>
-      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" id="modalCourseTitle">Enroll in Course</h3>
-      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-        Fill in your details and our education counselor will call you with syllabus & batch timings.
-      </p>
+  <nav class="mobile-bottom-bar" aria-label="Mobile Navigation Quick Bar">
+    <button class="mobile-bottom-item active" onclick="switchEngine('interview'); location.href='#playground';">
+      <span class="bottom-icon">🎙️</span>
+      <span class="bottom-label">Mock Drill</span>
+    </button>
+    <button class="mobile-bottom-item" onclick="switchEngine('ats'); location.href='#playground';">
+      <span class="bottom-icon">📄</span>
+      <span class="bottom-label">ATS Resume</span>
+    </button>
+    <button class="mobile-bottom-item" onclick="switchEngine('agents'); location.href='#playground';">
+      <span class="bottom-icon">🤖</span>
+      <span class="bottom-label">AI Mentor</span>
+    </button>
+    <a href="#job-openings" class="mobile-bottom-item">
+      <span class="bottom-icon">💼</span>
+      <span class="bottom-label">IT Jobs</span>
+    </a>
+    <a href="login.html" class="mobile-bottom-item">
+      <span class="bottom-icon">👤</span>
+      <span class="bottom-label">Sign In</span>
+    </a>
+  </nav>
 
-      <form id="enrollForm">
-        <div class="form-group">
-          <label class="form-label" for="studentName">Full Name</label>
-          <input type="text" id="studentName" class="form-control" placeholder="e.g. Rahul Sharma"
-            style="padding-left: 1rem;" required>
-        </div>
+  <!-- =========================================================================
+       Client Interactions Script (Mobile Drawer, Tab Switcher, Diagnostic)
+       ========================================================================= -->
+  <script>
+    // Mobile Drawer Navigation
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerClose = document.getElementById('mobileDrawerClose');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
 
-        <div class="form-group">
-          <label class="form-label" for="studentEmail">Email Address</label>
-          <input type="email" id="studentEmail" class="form-control" placeholder="e.g. rahul@example.com"
-            style="padding-left: 1rem;" required>
-        </div>
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerBackdrop.style.display = 'block';
+    }
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerBackdrop.style.display = 'none';
+    }
 
-        <div class="form-group">
-          <label class="form-label" for="studentPhone">Phone / WhatsApp Number</label>
-          <input type="tel" id="studentPhone" class="form-control" placeholder="e.g. +91 98765 43210"
-            style="padding-left: 1rem;" required>
-        </div>
+    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-        <div class="form-group">
-          <label class="form-label" for="studentBatch">Preferred Batch</label>
-          <select id="studentBatch" class="form-control" style="padding-left: 1rem; background: #1e293b; color: #fff;">
-            <option value="weekend">Weekend Live Batch (Sat & Sun)</option>
-            <option value="weekday-evening">Weekday Evening (7:30 PM - 9:30 PM)</option>
-            <option value="weekday-morning">Weekday Morning (8:00 AM - 10:00 AM)</option>
-          </select>
-        </div>
+    // Engine Tab Switching
+    function switchEngine(tabName) {
+      const tabs = ['interview', 'ats', 'rag', 'agents', 'prompts'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+        const panel = document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (btn) btn.classList.toggle('active', t === tabName);
+        if (panel) panel.style.display = (t === tabName) ? 'block' : 'none';
+      });
+    }
 
-        <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 1rem;">
-          Submit Enrollment Inquiry
-        </button>
-      </form>
-    </div>
-  </div>
+    // Interactive Recalculate Job Readiness
+    const btnRecalc = document.getElementById('btnRecalculate');
+    if (btnRecalc) {
+      btnRecalc.addEventListener('click', () => {
+        btnRecalc.innerText = 'Calculating 150+ IT Benchmarks...';
+        setTimeout(() => {
+          document.getElementById('readinessScoreVal').innerText = '94%';
+          btnRecalc.innerText = '⚡ Readiness Updated: 94% (FAANG Ready)';
+        }, 600);
+      });
+    }
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toastContainer"></div>
+    // Voice Record Simulation
+    let isRecording = false;
+    function toggleRecord() {
+      isRecording = !isRecording;
+      const btn = document.getElementById('btnVoiceRecord');
+      const txt = document.getElementById('recordText');
+      if (isRecording) {
+        btn.classList.add('recording');
+        txt.innerText = '⏹ Recording Voice (0:04)...';
+      } else {
+        btn.classList.remove('recording');
+        txt.innerText = '🎙️ Record Voice Answer';
+      }
+    }
 
-  <script src="js/main.js"></script>
+    // Mock Interview Evaluate
+    function evaluateAnswer() {
+      document.getElementById('rubricScore').innerText = '96/100';
+      document.getElementById('techAccVal').innerText = '98%';
+      document.getElementById('techAccBar').style.width = '98%';
+      document.getElementById('rubricFeedback').innerText = '✨ Outstanding response! Your response clearly demonstrated practical IT experience. Identified strengths: Strong algorithmic reasoning, zero hesitation on distributed scaling concepts, and standard STAR presentation formatting.';
+    }
+
+    // Next Question
+    function nextQuestion() {
+      document.getElementById('mockQuestionText').innerText = '"How would you prevent race conditions and implement distributed rate limiting for 50,000 requests/second across multiple regional nodes?"';
+      document.getElementById('candidateAnswerInput').value = 'We implement a sliding-window rate limiter using Redis sorted sets (ZSET) executed inside an atomic Lua script. This eliminates client-server round-trips and guarantees atomicity without distributed lock overhead.';
+    }
+
+    // ATS Resume Optimization
+    function optimizeResume() {
+      document.getElementById('atsScoreVal').innerText = '96';
+      document.getElementById('atsBulletText').innerText = '• Architected high-performance Full-Stack AI microservices using React 19, TypeScript, and Node.js, integrating Pinecone vector databases and RAG hybrid search pipelines with LangGraph multi-agent automation to reduce query latency by 42%.';
+      document.querySelectorAll('.kw-chip.missing').forEach(el => {
+        el.className = 'kw-chip matched';
+        el.innerHTML = '<span>✓</span> ' + el.innerText.replace('+', '').trim();
+      });
+    }
+
+    // RAG Semantic Query Simulation
+    function runRagQuery() {
+      const scoreBadge = document.getElementById('ragScoreBadge');
+      scoreBadge.innerText = '98.8% Cosine Match (Verified)';
+    }
+
+    // Chatbot Send Message
+    function sendChatMessage() {
+      const input = document.getElementById('chatInputText');
+      const val = input.value.trim();
+      if (!val) return;
+      const box = document.getElementById('chatMessagesBox');
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.innerText = val;
+      box.appendChild(userBubble);
+      input.value = '';
+
+      setTimeout(() => {
+        const agentBubble = document.createElement('div');
+        agentBubble.className = 'chat-bubble agent';
+        agentBubble.innerHTML = '<div class="agent-thought">🧠 Agent reasoning: Matched against IT hiring rubrics.</div><div>For this question in technical IT interviews, top tech companies prioritize both system scalability and crisp communication. Focus on articulating your architectural trade-offs using the STAR method. Would you like to run a 5-minute mock interview on this exact topic?</div>';
+        box.appendChild(agentBubble);
+        box.scrollTop = box.scrollHeight;
+      }, 500);
+    }
+  </script>
 </body>
-
 </html>
